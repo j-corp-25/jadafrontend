@@ -40,9 +40,9 @@ const HeroCard: React.FC<HeroCardProps> = async ({
         />
       </div>
       <div className='space-y-4'>
-        <h1 className='text-5xl font-bold'>{heroData?.title}</h1>
-        <h2 className='text-3xl text-gray-700'>{heroData?.sub_title}</h2>
-        <p className='text-lg'>{heroData?.page_text}</p>
+        <h1 className='text-5xl font-bold'>{heroData.title}</h1>
+        <h2 className='text-3xl text-gray-700'>{heroData.sub_title}</h2>
+        <p className='text-lg'>{heroData.page_text}</p>
         <div className='flex gap-4'>
           {/* Use Button components and pass the click handlers */}
 
