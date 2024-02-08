@@ -62,6 +62,10 @@ export default async function Page() {
 
   const { thumbnail, large, medium, small } = data.image.data.attributes.formats
 
+//   console.log({"RESPONSE": data});
+// console.log({"IMAGE RESPONSE": data.image.data.attributes.formats});
+
+
   return (
     <div className='flex flex-col items-center justify-between min-h-screen px-4 md:px-8 py-8'>
       <div className='w-full max-w-3xl mx-auto flex flex-col space-y-10'>
@@ -70,7 +74,7 @@ export default async function Page() {
         <p className='text-gray-800 text-lg md:text-xl'>{second_para}</p>
         <p className='text-gray-600 text-base md:text-lg'>{info}</p>
         <div>
-            <Image src={large.url} width={200} height={200} alt={large.name}  className='rounded-lg shadow-xl'></Image>
+            <Image src={large?.url} width={200} height={200} alt={large?.name}  className='rounded-lg shadow-xl'></Image>
         </div>
 
         <ul className='list-disc list-inside text-lg md:text-xl text-left space-y-2'>
