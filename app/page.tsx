@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import HeroCard from "./components/HeroCard"
 
 export default function Home() {
   return (
@@ -14,6 +15,13 @@ export default function Home() {
       <Link href="/dashboard">
       Dashboard
       </Link>
+      <HeroCard
+          imageUrl="/path-to-image.jpg"
+          imageAlt="Image Description"
+          title="Hero Title"
+          subtitle="Hero Subtitle"
+          body="Hero body text"
+        />
 
 
     </main>
