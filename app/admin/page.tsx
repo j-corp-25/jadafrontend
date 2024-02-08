@@ -4,7 +4,7 @@ import Link from 'next/link'
 
 const AdminLogin = () => {
   const { data: session } = useSession()
-  console.log(session)
+
 
 
 

@@ -1,7 +1,7 @@
+import { API_URL } from '@/config'
 import NextAuth from 'next-auth'
 import CredentialsProvider from 'next-auth/providers/credentials'
 
-const secret = process.env.NEXTAUTH_SECRET
 
 
 const handler = NextAuth({
@@ -15,7 +15,7 @@ const handler = NextAuth({
       async authorize(credentials, req) {
         try {
           const response = await fetch(
-            'http://localhost:1337/api/auth/local/',
+            `${API_URL}/api/auth/local/`,
             {
               method: 'POST',
               headers: {

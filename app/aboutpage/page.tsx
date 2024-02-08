@@ -1,9 +1,10 @@
 // pages/about.js
+import { API_URL } from "@/config";
 import Link from "next/link";
 
 // Hypothetical server-side data fetching function
 async function getData() {
-    const res = await fetch('http://localhost:1337/api/aboutpage', {cache: 'no-store'} )
+    const res = await fetch(`${API_URL}/api/aboutpage`, {cache: 'no-store'} )
     if (!res.ok) {
       throw new Error('Failed to fetch data')
     }
