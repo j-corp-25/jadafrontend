@@ -1,9 +1,12 @@
 'use client'
 import { signIn, signOut, useSession } from 'next-auth/react'
+import Link from 'next/link'
 
 const AdminLogin = () => {
   const { data: session } = useSession()
   console.log(session)
+
+
 
   return (
     <div className='container mx-auto '>
@@ -23,6 +26,10 @@ const AdminLogin = () => {
           Sign In
         </button>
       )}
+
+      <Link href="/">
+      Home
+      </Link>
       {/* <form className='flex flex-col items-center'>
         <label htmlFor='username' className='cursor-pointer'>
           {' '}
