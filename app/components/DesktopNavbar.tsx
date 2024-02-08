@@ -17,25 +17,32 @@ const menuItems = [
 ]
 
 const DesktopNavbar: React.FC = () => {
-  const router = useRouter();
-  const pathname = usePathname();
+  const router = useRouter()
+  const pathname = usePathname()
 
   const handleButtonClick = (e) => {
-    e.preventDefault();
+    e.preventDefault()
     router.push('/booking')
   }
 
   return (
-    <nav className='hidden md:flex md:flex-row bg-jada-green-500 px-4 sm:px-6 lg:px-8 items-center md:justify-between h-20 shadow-md'>
-      <div className='gap-5 flex flex-row items-center'>
+    <nav className='hidden md:flex md:flex-row bg-jada-green-500 px-2 items-center md:justify-between h-20 shadow-xl container-fluid whitespace-nowrap'>
+      <div className='flex flex-row items-center  '>
         <Logo src='/Logo-image.png' alt='logo' />
-        <ul className='flex space-x-8'>
+        <ul className='flex gap-5'>
           {menuItems.map((item) => (
-            <MenuItem key={item.href} href={item.href} label={item.label} isActive={pathname === item.href} />
-            ))}
+            <MenuItem
+              key={item.href}
+              href={item.href}
+              label={item.label}
+              isActive={pathname === item.href}
+            />
+          ))}
         </ul>
       </div>
-      <Button text='Book Jada' onClick={handleButtonClick} />
+      <div className=''>
+        <Button text='Book Jada' onClick={handleButtonClick} />
+      </div>
     </nav>
   )
 }

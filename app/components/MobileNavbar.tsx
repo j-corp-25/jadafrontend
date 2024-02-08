@@ -26,11 +26,11 @@ const MobileNavbar: React.FC = () => {
   }
 
   return (
-    <nav className='md:hidden bg-jada-green-500 px-4 flex items-center justify-between h-20 shadow'>
+    <nav className='md:hidden bg-jada-green-500 px-4 flex items-center justify-between h-20 shadow-xl'>
       <Logo src='/Logo-item.png' alt='logo' />
 
       <div
-      className={`absolute ${isMenuOpen ? 'top-[6rem]' : 'top-[-100vh]'} transition-top duration-500 ease-in-out px-3 py-2 w-full left-0 bg-jada-green-400 shadow`}
+      className={`absolute ${isMenuOpen ? 'top-[5rem]' : 'top-[-100vh]'} transition-top duration-500 ease-in-out px-3 py-2 w-full left-0 bg-jada-green-400 shadow`}
     >
         <ul className='flex flex-col gap-10 text-jada-purple '>
           {menuItems.map((item) => (
