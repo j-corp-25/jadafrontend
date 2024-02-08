@@ -1,6 +1,5 @@
 // pages/about.js
 import { API_URL } from '@/config'
-import Link from 'next/link'
 import Image from 'next/image'
 
 
