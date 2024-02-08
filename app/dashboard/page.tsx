@@ -25,7 +25,7 @@ const Dashboard = () => {
             first_para: homepage.data.attributes.first_para,
             second_para: homepage.data.attributes.second_para,
         })
-        console.log(homepage)
+    
 
     }
     fetchHomepageData()
