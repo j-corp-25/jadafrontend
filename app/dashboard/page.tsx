@@ -2,9 +2,9 @@
 import React, { useState, useEffect } from 'react'
 import { signIn, signOut, useSession } from 'next-auth/react'
 import Link from 'next/link'
+import { API_URL } from '@/config'
 
 const Dashboard = () => {
-  const API_URL = 'http://localhost:1337/api/aboutpage'
   const [isEditing, setIsEditing] = useState(false)
   const { data: session } = useSession()
   const [formData,setFormData]= useState({
@@ -16,7 +16,7 @@ const Dashboard = () => {
   }
   useEffect(() => {
     const fetchHomepageData = async () => {
-        const res = await fetch(`${API_URL}`)
+        const res = await fetch(`${API_URL}/api/aboutpage`)
         if(!res.ok){
             throw new Error('Failed to fetch homepage data')
         }
@@ -25,19 +25,20 @@ const Dashboard = () => {
             first_para: homepage.data.attributes.first_para,
             second_para: homepage.data.attributes.second_para,
         })
-    
+
 
     }
     fetchHomepageData()
 
   },[])
-  const handleInputChange =(e) => {
-    const {name, value} = e.target
-    setFormData((prev) =>({...prev,[name]: value}))
-  }
-  const handleSubmit = async(e) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async(e: React.FormEvent<HTMLFormElement>)=> {
     e.preventDefault()
-    const res = await fetch(API_URL,{
+    const res = await fetch(`${API_URL}/api/aboutpage`,{
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json',
