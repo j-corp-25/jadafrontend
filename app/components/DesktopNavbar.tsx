@@ -4,8 +4,7 @@ import Logo from './Logo' // Your Logo component
 import MenuItem from './MenuItem' // Your MenuItem component
 import Button from './Button' // Your Button component
 import Link from 'next/link'
-import { useRouter, usePathname } from 'next/navigation'
-import clsx from 'clsx'
+import { usePathname } from 'next/navigation'
 
 const menuItems = [
   { href: '/about', label: 'About Jada' },
@@ -17,16 +16,10 @@ const menuItems = [
 ]
 
 const DesktopNavbar: React.FC = () => {
-  const router = useRouter()
   const pathname = usePathname()
 
-  const handleButtonClick = (e) => {
-    e.preventDefault()
-    router.push('/booking')
-  }
-
   return (
-    <nav className='hidden md:flex md:flex-row bg-jada-green-500 px-2 items-center md:justify-between h-20 shadow-xl container-fluid whitespace-nowrap'>
+    <nav className='hidden md:flex md:flex-row bg-jada-green-700 px-2 items-center md:justify-between h-20 shadow-xl container-fluid whitespace-nowrap'>
       <div className='flex flex-row items-center  '>
         <Logo src='/Logo-image.png' alt='logo' />
         <ul className='flex gap-5'>
@@ -41,7 +34,9 @@ const DesktopNavbar: React.FC = () => {
         </ul>
       </div>
       <div className=''>
-        <Button text='Book Jada' onClick={handleButtonClick} />
+        <Link href='/booking'>
+          <Button text='Book Jada' />
+        </Link>
       </div>
     </nav>
   )

@@ -20,7 +20,7 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <Provider>
-        <body className={`${nunito.className} antialiased container-full mx-auto bg-jada-green-600`}>
+        <body className={`${nunito.className} antialiased container-full mx-auto bg-jada-green-500`}>
           <Navbar/>
           {children}
         <Analytics />

@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import Logo from './Logo'
 import MenuItem from './MenuItem'
+import Button from './Button'
+import Link from 'next/link'
 import { FaBars } from 'react-icons/fa'
 import { IoCloseOutline } from 'react-icons/io5'
 
-import { useRouter, usePathname } from 'next/navigation'
+import { usePathname } from 'next/navigation'
 
 const menuItems = [
   { href: '/about', label: 'About Jada' },
@@ -16,7 +18,7 @@ const menuItems = [
 ]
 
 const MobileNavbar: React.FC = () => {
-  const pathname = usePathname();
+  const pathname = usePathname()
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen)
@@ -26,18 +28,27 @@ const MobileNavbar: React.FC = () => {
   }
 
   return (
-    <nav className='md:hidden bg-jada-green-500 px-4 flex items-center justify-between h-20 shadow-xl'>
+    <nav className='md:hidden bg-jada-green-700 px-4 flex items-center justify-between h-20 shadow-xl'>
       <Logo src='/Logo-item.png' alt='logo' />
 
       <div
-      className={`absolute ${isMenuOpen ? 'top-[5rem]' : 'top-[-100vh]'} transition-top duration-500 ease-in-out px-3 py-2 w-full left-0 bg-jada-green-400 shadow`}
-    >
+        className={`absolute ${
+          isMenuOpen ? 'top-[5rem]' : 'top-[-100vh]'
+        } transition-top duration-500 ease-in-out px-3 py-2 w-full left-0 bg-jada-green-500 shadow`}
+      >
         <ul className='flex flex-col gap-10 text-jada-purple '>
           {menuItems.map((item) => (
-            <div onClick={closeMenu}>
-              <MenuItem key={item.href} href={item.href} label={item.label}  isActive={pathname === item.href}/>
+            <div key={item.href} onClick={closeMenu}>
+              <MenuItem
+                href={item.href}
+                label={item.label}
+                isActive={pathname === item.href}
+              />
             </div>
           ))}
+          <Link href='/booking'>
+            <Button text='Book Jada' />
+          </Link>
         </ul>
       </div>
 
