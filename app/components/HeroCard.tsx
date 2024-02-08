@@ -12,9 +12,12 @@ interface HeroCardProps {
   body?: string
 }
 export const getHeroData = async () => {
-  const res = await fetch(`${API_URL}/api/homepage`)
-  const data = await res.json()
-  return data?.data.attributes
+  const res = await fetch(`${API_URL}/api/homepage`, {cache: 'no-store'})
+  if (!res.ok) {
+    throw new Error('Failed to fetch data')
+  }
+  const data = await res.json();
+  return data.data.attributes;
 }
 
 const HeroCard: React.FC<HeroCardProps> = async ({
