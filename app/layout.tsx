@@ -1,10 +1,11 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
+import { Nunito } from 'next/font/google'
 import './globals.css'
 import Provider from './Provider'
 import { Analytics } from '@vercel/analytics/react';
 
-const inter = Inter({ subsets: ['latin'] })
+const nunito = Nunito({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -19,7 +20,7 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <Provider>
-        <body className={inter.className}>{children}
+        <body className={`${nunito.className} antialiased container-full mx-auto bg-jada-green-600`}>{children}
         <Analytics />
         </body>
       </Provider>
