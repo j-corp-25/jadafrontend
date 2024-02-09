@@ -61,8 +61,8 @@ export default async function Page() {
 
   const { thumbnail, large, medium, small } = data.image.data.attributes.formats
 
-  console.log({ RESPONSE: data })
-  console.log({ 'IMAGE RESPONSE': data.image.data.attributes.formats })
+  // console.log({ RESPONSE: data })
+  // console.log({ 'IMAGE RESPONSE': data.image.data.attributes.formats })
 
   return (
     <div className='flex flex-col items-center justify-between min-h-screen px-4 md:px-8 py-8'>
@@ -74,7 +74,7 @@ export default async function Page() {
           <Image
             src={small?.url}
             width={200}
-            height={200}
+            height={500}
             alt={small?.name}
             className='rounded-lg shadow-xl'
           ></Image>
