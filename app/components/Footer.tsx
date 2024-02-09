@@ -67,7 +67,7 @@ const Footer = () => {
         <span className='block text-sm text-gray-500 text-center dark:text-gray-400'>
           Copyright © 2023{' '}
           <a href='' className='hover:underline'>
-            Palate Pages
+            Jadas website
           </a>
         </span>
       </div>
