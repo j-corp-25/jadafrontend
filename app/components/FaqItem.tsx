@@ -7,7 +7,7 @@ const FaqItem = ({ question, answer }) => {
 
     const toggleOpen = () => setIsOpen(!isOpen);
 
-    const collapsibleStyle = isOpen ? { maxHeight: 'none', transition: 'max-height 0.3s ease-out' } : { maxHeight: '0', overflow: 'hidden', transition: 'max-height 0.4s ease-out' };
+    const collapsibleStyle = isOpen ? { maxHeight: 'none', transition: 'max-height' } : { maxHeight: '0', overflow: 'hidden', transition: 'max-height' };
 
     return (
       <div className='mb-8 p-4 rounded-lg shadow-lg bg-white'>
@@ -18,12 +18,12 @@ const FaqItem = ({ question, answer }) => {
         >
           {question}
         </button>
-        <div style={collapsibleStyle} className="overflow-hidden text-jada-purple-800">
-          <div className='py-2'>
+        <div style={collapsibleStyle} className="overflow-hidden text-jada-purple-800 bg-slate-300 rounded-xl ">
+          <div className='py-2 px-2'>
             {answer}
           </div>
-        </div>
       </div>
+        </div>
     );
   };
 

@@ -44,12 +44,11 @@ const handler = NextAuth({
   secret: process.env.NEXTAUTH_SECRET,
   callbacks: {
     async jwt({ token, user }) {
-      // Assuming you want to store user details in the token
+
 
       return { ...token, ...user }
     },
     async session({ session, token }) {
-      // Assuming you want to store user details from the token in the session
       session.jwt = token.jwt as string
       session.user = token.user as any
 

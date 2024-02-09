@@ -5,6 +5,7 @@ import Button from './Button'
 import Link from 'next/link'
 import { FaBars } from 'react-icons/fa'
 import { IoCloseOutline } from 'react-icons/io5'
+import { useSession } from 'next-auth/react'
 
 import { usePathname } from 'next/navigation'
 
@@ -15,11 +16,15 @@ const menuItems = [
   { href: '/booking', label: 'Book Jada' },
   { href: '/resources', label: 'Resources' },
   { href: '/contact', label: 'Contact' },
+  { href: '/dashboard', label: 'Dashboard' },
 ]
 
 const MobileNavbar: React.FC = () => {
   const pathname = usePathname()
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const { data: session, status } = useSession()
+
+  const filteredMenuItems = menuItems.filter(item => item.href !== '/dashboard' || status === 'authenticated');
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen)
   }
@@ -29,7 +34,7 @@ const MobileNavbar: React.FC = () => {
 
   return (
     <nav className='md:hidden bg-jada-green-700 px-4 flex items-center justify-between h-20 shadow-xl'>
-      <Logo src='/Logo-item.png' alt='logo' />
+      <Logo src='/logo.png' alt='logo' />
 
       <div
         className={`absolute ${
@@ -37,7 +42,7 @@ const MobileNavbar: React.FC = () => {
         } transition-top duration-500 ease-in-out px-3 py-2 w-full left-0 bg-jada-green-500 shadow`}
       >
         <ul className='flex flex-col gap-10 text-jada-purple '>
-          {menuItems.map((item) => (
+          {filteredMenuItems.map((item) => (
             <div key={item.href} onClick={closeMenu}>
               <MenuItem
                 href={item.href}

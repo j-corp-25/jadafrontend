@@ -2,7 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 interface LogoProps {
-  src: string
+  src?: string
   alt: string
   height?: number
   width?: number

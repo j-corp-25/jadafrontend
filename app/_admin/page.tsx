@@ -3,7 +3,10 @@ import { signIn, signOut, useSession } from 'next-auth/react'
 import Link from 'next/link'
 
 const AdminLogin = () => {
-  const { data: session } = useSession()
+  const { data: session, status, } = useSession()
+  console.log(session)
+  console.log(status)
+
 
 
 

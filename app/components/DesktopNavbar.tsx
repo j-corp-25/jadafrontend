@@ -1,5 +1,5 @@
-'use client'
-
+import { useSession } from 'next-auth/react'
+import clsx from 'clsx';
 import Logo from './Logo' // Your Logo component
 import MenuItem from './MenuItem' // Your MenuItem component
 import Button from './Button' // Your Button component
@@ -13,17 +13,24 @@ const menuItems = [
   { href: '/testimonials', label: 'Testimonials' },
   { href: '/resources', label: 'Resources' },
   { href: '/contact', label: 'Contact' },
+  { href: '/dashboard', label: 'Dashboard' },
 ]
 
 const DesktopNavbar: React.FC = () => {
   const pathname = usePathname()
+  const { data: session, status } = useSession()
+
+
+  const filteredMenuItems = menuItems.filter(item => item.href !== '/dashboard' || status === 'authenticated');
+
+
 
   return (
     <nav className='hidden md:flex md:flex-row bg-jada-green-700 px-2 items-center md:justify-between h-20 shadow-xl container-fluid whitespace-nowrap'>
       <div className='flex flex-row items-center  '>
-        <Logo src='/Logo-image.png' alt='logo' />
+        <Logo alt='logo' />
         <ul className='flex gap-5'>
-          {menuItems.map((item) => (
+        {filteredMenuItems.map((item) => (
             <MenuItem
               key={item.href}
               href={item.href}
