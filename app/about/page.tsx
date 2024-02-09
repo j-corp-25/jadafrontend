@@ -62,8 +62,8 @@ export default async function Page() {
 
   const { thumbnail, large, medium, small } = data.image.data.attributes.formats
 
-//   console.log({"RESPONSE": data});
-// console.log({"IMAGE RESPONSE": data.image.data.attributes.formats});
+  console.log({"RESPONSE": data});
+console.log({"IMAGE RESPONSE": data.image.data.attributes.formats});
 
 
   return (
@@ -91,6 +91,3 @@ export default async function Page() {
     </div>
   )
 }
-
-// Hypothetical example of fetching data server-side for the component
-// Adjust according to actual Next.js 13 server component data fetching capabilities
