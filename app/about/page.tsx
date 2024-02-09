@@ -72,10 +72,10 @@ export default async function Page() {
         <p className='text-gray-600 text-base md:text-lg'>{info}</p>
         <div>
           <Image
-            src={large?.url}
+            src={small?.url}
             width={200}
             height={200}
-            alt={large?.name}
+            alt={small?.name}
             className='rounded-lg shadow-xl'
           ></Image>
         </div>
