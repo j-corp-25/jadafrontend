@@ -1,12 +1,11 @@
 import React, { useState } from 'react'
-import Logo from './Logo'
 import MenuItem from './MenuItem'
 import Button from './Button'
 import Link from 'next/link'
 import { FaBars } from 'react-icons/fa'
 import { IoCloseOutline } from 'react-icons/io5'
 import { useSession } from 'next-auth/react'
-
+import LogoImage from '../dashboard/components/LogoImage'
 import { usePathname } from 'next/navigation'
 
 const menuItems = [
@@ -22,9 +21,11 @@ const menuItems = [
 const MobileNavbar: React.FC = () => {
   const pathname = usePathname()
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const { data: session, status } = useSession()
+  const { status } = useSession()
 
-  const filteredMenuItems = menuItems.filter(item => item.href !== '/dashboard' || status === 'authenticated');
+  const filteredMenuItems = menuItems.filter(
+    (item) => item.href !== '/dashboard' || status === 'authenticated'
+  )
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen)
   }
@@ -34,7 +35,7 @@ const MobileNavbar: React.FC = () => {
 
   return (
     <nav className='md:hidden bg-jada-green-700 px-4 flex items-center justify-between h-20 shadow-xl'>
-      <Logo src='/logo.png' alt='logo' />
+      <LogoImage />
 
       <div
         className={`absolute ${

@@ -2,6 +2,7 @@
 import Link from 'next/link'
 import { signIn, signOut, useSession } from 'next-auth/react'
 import Image from 'next/image'
+import LogoImage from '../dashboard/components/LogoImage'
 
 interface CustomUser {
   username?: string;
@@ -15,7 +16,8 @@ const Footer = () => {
     <footer className='bg-light-text'>
       <div className='w-full mx-auto p-4 md:py-8'>
         <div className='sm:flex sm:items-center md:static  sm:justify-between  '>
-            <Image src='/logo.png' className='w-20' alt='Logo' width={50} height={50} />
+            <LogoImage/>
+            
             <span className='self-center  text-jada-purple-700 text-2xl font-semibold whitespace-nowrap p-1 mt-5'>
              Jadas website name
             </span>

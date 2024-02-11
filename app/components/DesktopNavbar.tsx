@@ -1,10 +1,9 @@
 import { useSession } from 'next-auth/react'
-import clsx from 'clsx';
-import Logo from './Logo' // Your Logo component
 import MenuItem from './MenuItem' // Your MenuItem component
 import Button from './Button' // Your Button component
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import LogoImage from '../dashboard/components/LogoImage'
 
 const menuItems = [
   { href: '/about', label: 'About Jada' },
@@ -18,19 +17,18 @@ const menuItems = [
 
 const DesktopNavbar: React.FC = () => {
   const pathname = usePathname()
-  const { data: session, status } = useSession()
+  const { status } = useSession()
 
-
-  const filteredMenuItems = menuItems.filter(item => item.href !== '/dashboard' || status === 'authenticated');
-
-
+  const filteredMenuItems = menuItems.filter(
+    (item) => item.href !== '/dashboard' || status === 'authenticated'
+  )
 
   return (
     <nav className='hidden md:flex md:flex-row bg-jada-green-700 px-2 items-center md:justify-between h-20 shadow-xl container-fluid whitespace-nowrap'>
       <div className='flex flex-row items-center  '>
-        <Logo alt='logo' />
+        <LogoImage />
         <ul className='flex gap-5'>
-        {filteredMenuItems.map((item) => (
+          {filteredMenuItems.map((item) => (
             <MenuItem
               key={item.href}
               href={item.href}
