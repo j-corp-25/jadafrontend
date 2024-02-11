@@ -12,24 +12,12 @@ interface HeroCardProps {
 }
 
 const getHeroImage = async () => {
-  const res = await fetch(`${API_URL}/api/imagepage?populate=*`, { cache: 'no-store' });
-  const data = await res.json();
-
-
-  const smallImageUrl = data?.data?.attributes?.Heroimage?.data?.attributes?.formats?.small?.url;
-
-
-  if (!smallImageUrl) {
-    console.warn('Hero image URL not found');
-    return null;
-  }
-
-  return {
-    url: smallImageUrl,
-    name: data.data.attributes.Heroimage.data.attributes.name,
-  };
+  const res = await fetch(`${API_URL}/api/imagepage?populate=*`, {
+    cache: 'no-store',
+  })
+  const data = await res.json()
+  return data.data.attributes.Heroimage.data.attributes.formats.small
 }
-
 
 export const getHeroData = async () => {
   const res = await fetch(`${API_URL}/api/homepage?populate=*`, {
@@ -49,8 +37,10 @@ const HeroCard: React.FC<HeroCardProps> = async ({
   subtitle,
   body,
 }) => {
-  const image = await getHeroImage()
-  const heroData = await getHeroData()
+  const heroImageData = getHeroImage();
+  const heroDataPromise = getHeroData();
+
+  const [image, heroData] = await Promise.all([heroImageData, heroDataPromise]);
   return (
     <div className='grid grid-cols-1 md:grid-cols-2 gap-4 items-center bg-white p-8 rounded-lg shadow-lg'>
       <div className='mb-4 md:mb-0'>
