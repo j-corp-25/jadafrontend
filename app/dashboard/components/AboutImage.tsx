@@ -10,7 +10,7 @@ const getAboutImage = async () => {
 const AboutImage = async () => {
   const image = await getAboutImage()
 
-  return <Image src={image.url} height={100} width={200
+  return <Image src={image?.url} height={100} width={200
 } alt={image.name}></Image>
 }
 
