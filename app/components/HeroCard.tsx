@@ -26,13 +26,7 @@ export const getHeroData = async () => {
 
 
 
-const HeroCard = async ({
-  imageUrl,
-  imageAlt,
-  title,
-  subtitle,
-  body,
-}) => {
+const HeroCard = async () => {
   const image = await getHeroImage()
   const heroData = await getHeroData()
 
