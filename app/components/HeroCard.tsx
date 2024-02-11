@@ -1,7 +1,8 @@
 import Button from './Button'
 import { API_URL } from '@/config'
 import Link from 'next/link'
-import HeroImage from '../dashboard/components/HeroImage'
+import Image from 'next/image'
+// import HeroImage from '../dashboard/components/HeroImage'
 interface HeroCardProps {
   imageUrl?: string
   imageAlt?: string
@@ -9,6 +10,13 @@ interface HeroCardProps {
   subtitle?: string
   body?: string
 }
+
+const getHeroImage = async () => {
+  const res = await fetch(`${API_URL}/api/imagepage?populate=*`,{cache: 'no-store'})
+  const data = await res.json()
+  return data.data.attributes.Heroimage.data.attributes.formats.small
+}
+
 export const getHeroData = async () => {
   const res = await fetch(`${API_URL}/api/homepage?populate=*`, {cache: 'no-store'})
   if (!res.ok) {
@@ -25,11 +33,12 @@ const HeroCard: React.FC<HeroCardProps> = async ({
   subtitle,
   body,
 }) => {
+  const image = await getHeroImage()
   const heroData = await getHeroData()
   return (
     <div className='grid grid-cols-1 md:grid-cols-2 gap-4 items-center bg-white p-8 rounded-lg shadow-lg'>
       <div className='mb-4 md:mb-0'>
-        <HeroImage/>
+      <Image src={image.url} height={500} width={300} alt={image.name} className='rounded-lg'/>
       </div>
       <div className='space-y-4'>
         <h1 className='text-5xl font-bold'>{heroData.title}</h1>
