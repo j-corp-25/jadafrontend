@@ -1,3 +1,4 @@
+'use client'
 import { useSession } from 'next-auth/react'
 import MenuItem from './MenuItem' // Your MenuItem component
 import Button from './Button' // Your Button component
@@ -26,7 +27,9 @@ const DesktopNavbar: React.FC = () => {
   return (
     <nav className='hidden md:flex md:flex-row bg-jada-green-700 px-2 items-center md:justify-between h-20 shadow-xl container-fluid whitespace-nowrap'>
       <div className='flex flex-row items-center  '>
-        <LogoImage />
+        <Link href='/'>
+          <LogoImage />
+        </Link>
         <ul className='flex gap-5'>
           {filteredMenuItems.map((item) => (
             <MenuItem

@@ -1,5 +1,3 @@
-import React from 'react'
-import Image from 'next/image'
 import Button from './Button'
 import { API_URL } from '@/config'
 import Link from 'next/link'

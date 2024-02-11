@@ -1,8 +1,7 @@
-'use client';
-import HeroImage from '../components/HeroImage';
-import AboutImage from '../components/AboutImage';
-import LogoImage from '../components/LogoImage';
-
+// import HeroImage from '../components/HeroImage';
+// import AboutImage from '../components/AboutImage';
+// import LogoImage from '../components/LogoImage';
+'use client'
 import React, { useCallback } from 'react';
 import ImageUpload from '../components/ImageUpload'; // Assuming ImageUpload is in the same folder
 

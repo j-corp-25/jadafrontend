@@ -35,7 +35,10 @@ const MobileNavbar: React.FC = () => {
 
   return (
     <nav className='md:hidden bg-jada-green-700 px-4 flex items-center justify-between h-20 shadow-xl'>
+      <Link href='/'>
+
       <LogoImage />
+      </Link>
 
       <div
         className={`absolute ${

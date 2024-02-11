@@ -1,6 +1,4 @@
 'use client'
-
-import React from 'react';
 import MobileNavbar from './MobileNavbar';
 import DesktopNavbar from './DesktopNavbar';
 

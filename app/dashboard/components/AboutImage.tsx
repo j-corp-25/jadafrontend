@@ -1,8 +1,10 @@
+import 'server-only'
+
 import { API_URL } from '@/config'
 import Image from 'next/image'
 
 const getAboutImage = async () => {
-  const res = await fetch(`${API_URL}/api/imagepage?populate=*`)
+  const res = await fetch(`${API_URL}/api/imagepage?populate=*`,{cache: 'no-store'})
   const data = await res.json()
   return data.data.attributes.Aboutimage.data.attributes.formats.small
 }

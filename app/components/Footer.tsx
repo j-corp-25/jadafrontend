@@ -16,8 +16,8 @@ const Footer = () => {
     <footer className='bg-light-text'>
       <div className='w-full mx-auto p-4 md:py-8'>
         <div className='sm:flex sm:items-center md:static  sm:justify-between  '>
-            <LogoImage/>
-            
+            <LogoImage/> 
+
             <span className='self-center  text-jada-purple-700 text-2xl font-semibold whitespace-nowrap p-1 mt-5'>
              Jadas website name
             </span>
