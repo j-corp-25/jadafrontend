@@ -5,9 +5,9 @@ import useSWR from 'swr'
 import { useSession } from 'next-auth/react'
 import { API_URL } from '@/config'
 
-const fetcher = (url) => fetch(url).then((res) => res.json())
 
 const DashboardPage = () => {
+  const fetcher = (url) => fetch(url).then((res) => res.json())
   const { data: session } = useSession()
   const { data: homepageData, error } = useSWR(
     `${API_URL}/api/homepage?populate=*`,
