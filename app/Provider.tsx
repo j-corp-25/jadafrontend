@@ -1,14 +1,17 @@
 'use client'
-import { SessionProvider } from 'next-auth/react';
+import { SessionProvider } from 'next-auth/react'
 import React, { ReactNode } from 'react'
+import { LogoProvider } from './context/LogoContext'
 
 interface Props {
-    children: ReactNode;
+  children: ReactNode
 }
 
-function Provider ({children}: Props) {
+function Provider({ children }: Props) {
   return (
-    <SessionProvider>{children}</SessionProvider>
+    <SessionProvider>
+      <LogoProvider>{children}</LogoProvider>
+    </SessionProvider>
   )
 }
 

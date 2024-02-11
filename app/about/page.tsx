@@ -1,7 +1,8 @@
 // pages/about.js
+
 import { API_URL } from '@/config'
 import Image from 'next/image'
-import AboutImage from '../dashboard/components/AboutImage'
+// import AboutImage from '../dashboard/components/AboutImage'
 interface AboutInfo {
   info: string
 }
@@ -52,11 +53,13 @@ async function getData() {
 
 export default async function Page() {
   const data = await getData()
+  const imagedata = data.image.data.attributes.formats.small
   const {
     first_para,
     second_para,
     certificates,
-    info
+    info,
+
   } = data
 
   // console.log({ RESPONSE: data })
@@ -69,7 +72,7 @@ export default async function Page() {
         <p className='text-gray-800 text-lg md:text-xl'>{second_para}</p>
         <p className='text-gray-600 text-base md:text-lg'>{info}</p>
         <div>
-          <AboutImage/>
+          <Image src={imagedata.url} height={300} width={200} alt={'jada'}/>
         </div>
 
         <ul className='list-disc list-inside text-lg md:text-xl text-left space-y-2'>

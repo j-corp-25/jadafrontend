@@ -4,7 +4,8 @@ import MenuItem from './MenuItem' // Your MenuItem component
 import Button from './Button' // Your Button component
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import LogoImage from '../dashboard/components/LogoImage'
+import { useLogos } from '../context/LogoContext'
+import Image from 'next/image'
 
 const menuItems = [
   { href: '/about', label: 'About Jada' },
@@ -17,6 +18,7 @@ const menuItems = [
 ]
 
 const DesktopNavbar: React.FC = () => {
+  const {Logo } = useLogos();
   const pathname = usePathname()
   const { status } = useSession()
 
@@ -28,7 +30,7 @@ const DesktopNavbar: React.FC = () => {
     <nav className='hidden md:flex md:flex-row bg-jada-green-700 px-2 items-center md:justify-between h-20 shadow-xl container-fluid whitespace-nowrap'>
       <div className='flex flex-row items-center  '>
         <Link href='/'>
-          <LogoImage />
+          {Logo && <Image src={Logo} width={50} height={50} alt='logo'/>}
         </Link>
         <ul className='flex gap-5'>
           {filteredMenuItems.map((item) => (

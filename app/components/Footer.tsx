@@ -3,12 +3,14 @@ import Link from 'next/link'
 import { signIn, signOut, useSession } from 'next-auth/react'
 import Image from 'next/image'
 import LogoImage from '../dashboard/components/LogoImage'
+import { useLogos } from '../context/LogoContext'
 
 interface CustomUser {
   username?: string;
 }
 
 const Footer = () => {
+  const {Logo } = useLogos();
   const { data: session, } = useSession()
   const user = session?.user as CustomUser;
   return (
@@ -16,8 +18,9 @@ const Footer = () => {
     <footer className='bg-light-text'>
       <div className='w-full mx-auto p-4 md:py-8'>
         <div className='sm:flex sm:items-center md:static  sm:justify-between  '>
-            <LogoImage/> 
-
+        <Link href='/'>
+          {Logo && <Image src={Logo} width={50} height={50} alt='logo'/>}
+        </Link>
             <span className='self-center  text-jada-purple-700 text-2xl font-semibold whitespace-nowrap p-1 mt-5'>
              Jadas website name
             </span>
