@@ -38,23 +38,22 @@ const HeroCard: React.FC<HeroCardProps> = async ({
   subtitle,
   body,
 }) => {
-  const image = getHeroImage();
-  const heroData= getHeroData();
-
+  const image = await getHeroImage()
+  const heroData = await getHeroData()
 
   console.log(image)
   return (
     <div className='grid grid-cols-1 md:grid-cols-2 gap-4 items-center bg-white p-8 rounded-lg shadow-lg'>
       <div className='mb-4 md:mb-0'>
-       {image &&
-       <Image
-          src={image.url}
-          height={450}
-          width={300}
-          alt={image.name}
-          className='rounded-lg'
+        {image && (
+          <Image
+            src={image.url}
+            height={450}
+            width={300}
+            alt={image.name}
+            className='rounded-lg'
           />
-        }
+        )}
       </div>
       <div className='space-y-4'>
         <h1 className='text-5xl font-bold'>{heroData.title}</h1>
