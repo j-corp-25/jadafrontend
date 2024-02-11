@@ -12,9 +12,7 @@ interface HeroCardProps {
 }
 
 const getHeroImage = async () => {
-  const res = await fetch(`${API_URL}/api/imagepage?populate=*`, {
-    cache: 'no-store',
-  })
+  const res = await fetch(`${API_URL}/api/imagepage?populate=*`)
   const data = await res.json()
   return data.data.attributes.Heroimage.data.attributes.formats.small
 }
@@ -41,12 +39,13 @@ const HeroCard: React.FC<HeroCardProps> = async ({
   const heroDataPromise = getHeroData();
 
   const [image, heroData] = await Promise.all([heroImageData, heroDataPromise]);
+  console.log(image)
   return (
     <div className='grid grid-cols-1 md:grid-cols-2 gap-4 items-center bg-white p-8 rounded-lg shadow-lg'>
       <div className='mb-4 md:mb-0'>
         <Image
           src={image.url}
-          height={500}
+          height={450}
           width={300}
           alt={image.name}
           className='rounded-lg'
