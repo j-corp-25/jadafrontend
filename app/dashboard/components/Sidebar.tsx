@@ -11,7 +11,7 @@ const links = [
   // { href: '/dashboard/resources', label: 'Resources Page' },
   // { href: '/dashboard/faq', label: 'FAQ Page' },
   // { href: '/dashboard/testimonials', label: 'Testimonials Page' },
-  { href: '/dashboard/upload', label: 'Image & Logo Upload' },
+  // { href: '/dashboard/upload', label: 'Image & Logo Upload' },
   // { href: '/dashboard/profile', label: 'Change Email / Password' },
 ];
 

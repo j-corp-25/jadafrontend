@@ -6,7 +6,7 @@ import Image from 'next/image'
 const getHeroImage = async () => {
   const res = await fetch(`${API_URL}/api/imagepage?populate=*`,{cache: 'no-store'})
   const data = await res.json()
-  return data.data.attributes.Heroimage.data.attributes.formats.medium
+  return data.data.attributes.Heroimage.data.attributes.formats.small
 }
 const HeroImage = async () => {
   const image = await getHeroImage()
