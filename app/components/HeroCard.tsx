@@ -11,7 +11,7 @@ interface HeroCardProps {
   body?: string
 }
 
-const getHeroImage = async () => {
+export const getHeroImage = async () => {
   const res = await fetch(`${API_URL}/api/imagepage?populate=*`)
   if (!res.ok) {
     throw new Error('Failed to fetch data')
@@ -38,10 +38,10 @@ const HeroCard: React.FC<HeroCardProps> = async ({
   subtitle,
   body,
 }) => {
-  const heroImageData = getHeroImage();
-  const heroDataPromise = getHeroData();
+  const image = getHeroImage();
+  const heroData= getHeroData();
 
-  const [image, heroData] = await Promise.all([heroImageData, heroDataPromise]);
+
   console.log(image)
   return (
     <div className='grid grid-cols-1 md:grid-cols-2 gap-4 items-center bg-white p-8 rounded-lg shadow-lg'>
