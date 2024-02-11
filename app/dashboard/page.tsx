@@ -7,7 +7,7 @@ import { API_URL } from '@/config'
 
 const fetcher = (url) => fetch(url).then((res) => res.json())
 
-const page = () => {
+const DashboardPage = () => {
   const { data: session } = useSession()
   const { data: homepageData, error } = useSWR(
     `${API_URL}/api/homepage?populate=*`,
@@ -79,4 +79,4 @@ const page = () => {
   )
 }
 
-export default page
+export default DashboardPage
