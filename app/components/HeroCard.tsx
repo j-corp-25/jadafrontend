@@ -2,14 +2,7 @@ import Button from './Button'
 import { API_URL } from '@/config'
 import Link from 'next/link'
 import Image from 'next/image'
-// import HeroImage from '../dashboard/components/HeroImage'
-interface HeroCardProps {
-  imageUrl?: string
-  imageAlt?: string
-  title?: string
-  subtitle?: string
-  body?: string
-}
+
 
 export const getHeroImage = async () => {
   const res = await fetch(`${API_URL}/api/imagepage?populate=*`)
@@ -31,7 +24,9 @@ export const getHeroData = async () => {
   return data.data.attributes
 }
 
-const HeroCard: React.FC<HeroCardProps> = async ({
+
+
+const HeroCard = async ({
   imageUrl,
   imageAlt,
   title,
@@ -41,7 +36,7 @@ const HeroCard: React.FC<HeroCardProps> = async ({
   const image = await getHeroImage()
   const heroData = await getHeroData()
 
-  console.log(image)
+
   return (
     <div className='grid grid-cols-1 md:grid-cols-2 gap-4 items-center bg-white p-8 rounded-lg shadow-lg'>
       <div className='mb-4 md:mb-0'>
