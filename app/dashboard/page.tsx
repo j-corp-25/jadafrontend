@@ -1,94 +1,82 @@
 'use client'
-import React, { useState, useEffect } from 'react'
-import { signIn, signOut, useSession } from 'next-auth/react'
-import Link from 'next/link'
+import React from 'react'
+import { useForm } from 'react-hook-form'
+import useSWR from 'swr'
+import { useSession } from 'next-auth/react'
 import { API_URL } from '@/config'
 
+const fetcher = (url) => fetch(url).then((res) => res.json())
+
 const Dashboard = () => {
-  const [isEditing, setIsEditing] = useState(false)
   const { data: session } = useSession()
-  const [formData,setFormData]= useState({
-    first_para:"",
-    second_para:""
-  })
-  const handleEdit = () => {
-    setIsEditing(true)
-  }
-  useEffect(() => {
-    const fetchHomepageData = async () => {
-        const res = await fetch(`${API_URL}/api/aboutpage`)
-        if(!res.ok){
-            throw new Error('Failed to fetch homepage data')
-        }
-        const homepage = await res.json()
-        setFormData({
-            first_para: homepage.data.attributes.first_para,
-            second_para: homepage.data.attributes.second_para,
-        })
+  const { data: homepageData, error } = useSWR(
+    `${API_URL}/api/aboutpage?populate=*`,
+    fetcher
+  )
+  const { register, handleSubmit, reset } = useForm()
 
-
+  React.useEffect(() => {
+    if (homepageData) {
+      reset({
+        first_para: homepageData.data.attributes.first_para,
+        second_para: homepageData.data.attributes.second_para,
+        info: homepageData.data.attributes.about.info
+      })
     }
-    fetchHomepageData()
+  }, [homepageData, reset])
 
-  },[])
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  };
+  if (error) return <div>Failed to load</div>
 
-  const handleSubmit = async(e: React.FormEvent<HTMLFormElement>)=> {
-    e.preventDefault()
-    const res = await fetch(`${API_URL}/api/aboutpage`,{
+  const onSubmit = async (formData) => {
+    console.log(formData)
+    try {
+      const res = await fetch(`${API_URL}/api/aboutpage`, {
         method: 'PUT',
         headers: {
-            'Content-Type': 'application/json',
-            authorization: `Bearer ${session?.jwt}`
+          'Content-Type': 'application/json',
+          authorization: `Bearer ${session?.jwt}`,
         },
-        body: JSON.stringify({data: formData})
-    })
-    if(!res.ok){
-        setIsEditing(false)
+        body: JSON.stringify({ data: formData }),
+      })
+      if (!res.ok) {
         throw new Error('Failed to update data')
+      }
+      console.log(formData)
+      alert('Data updated successfully')
+    } catch (error) {
+      console.error('Failed to submit the form', error)
     }
-    setIsEditing(false)
-    alert('Data updated successfully')
-
   }
 
-
   return (
-  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-center bg-white p-8 rounded-lg shadow-lg">
+    <div className='grid grid-cols-1 md:grid-cols-2 gap-4 items-center bg-white p-8 rounded-lg shadow-lg '>
+      <div className='space-y-4' >
+        <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col gap-2'>
+          <label htmlFor="first_para">First Paragraph</label>
+          <textarea
+            {...register('first_para')}
+            id='first_para'
 
-    <div className="space-y-4">
-    <Link href="/">
-        Home
-    </Link>
-      {isEditing ? (
-        <form onSubmit={handleSubmit}>
-          <input
-            name='first_para'
-            value={formData.first_para}
-            onChange={handleInputChange}
-          />
-          <input
-            name='second_para'
-            value={formData.second_para}
-            onChange={handleInputChange}
-          />
 
-          <button type='submit'>Save Changes</button>
+            className='text-l border overflow-hidden min-h-24 resize-none rounded-md border-jada-purple-700 p-1'
+          />
+           <label htmlFor="secondPara">Second Paragraph</label>
+          <textarea
+            {...register('second_para')}
+            id='secondPara'
+            className='text-l overflow-hidden border min-h-24 resize-none rounded-md border-jada-purple-700 p-1'
+          />
+          <label htmlFor="infoPart">Information Summary</label>
+          <textarea
+            {...register('info')}
+            id='infoPart'
+            className='text-l overflow-hidden border min-h-24 resize-none rounded-md border-jada-purple-700 p-1'
+          />
+          <button type='submit' className=' bg-blue-100'>Save Changes</button>
         </form>
-      ) : (
-        <>
-          <h1 className="text-5xl font-bold">{formData.first_para}</h1>
-          <h2 className="text-3xl text-gray-700">{formData.second_para}</h2>
-          <button onClick={handleEdit}>Edit</button>
-        </>
-      )}
+      </div>
     </div>
-  </div>
-);
-
+  )
 }
 
 export default Dashboard

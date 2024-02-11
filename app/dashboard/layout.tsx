@@ -1,11 +1,8 @@
-
-
 import React from 'react';
-import { Nunito } from 'next/font/google'
 import Sidebar from './components/Sidebar'
 
 
-const nunito = Nunito({ subsets: ['latin'] })
+
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
