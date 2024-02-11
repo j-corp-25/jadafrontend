@@ -1,12 +1,11 @@
 import React from 'react'
-import { SpinnerCircular } from 'spinners-react';
 
 const loading = () => {
   return (
 
 
 // Default values shown
-   <SpinnerCircular />
+  <div>Loading....</div>
 
   )
 }

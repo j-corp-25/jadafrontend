@@ -7,30 +7,30 @@ import { API_URL } from '@/config'
 
 const fetcher = (url) => fetch(url).then((res) => res.json())
 
-const page = () => {
+const Dashboard = () => {
   const { data: session } = useSession()
-  const { data: homepageData, error } = useSWR(
-    `${API_URL}/api/homepage?populate=*`,
+  const { data: aboutPageData, error } = useSWR(
+    `${API_URL}/api/aboutpage?populate=*`,
     fetcher
   )
   const { register, handleSubmit, reset } = useForm()
 
   React.useEffect(() => {
-    if (homepageData) {
+    if (aboutPageData) {
       reset({
-        title: homepageData.data.attributes.title,
-        sub_title: homepageData.data.attributes.sub_title,
-        page_text: homepageData.data.attributes.page_text,
+        first_para: aboutPageData.data.attributes.first_para,
+        second_para: aboutPageData.data.attributes.second_para,
+        info: aboutPageData.data.attributes.info
       })
     }
-  }, [homepageData, reset])
+  }, [aboutPageData, reset])
 
   if (error) return <div>Failed to load</div>
 
   const onSubmit = async (formData) => {
     console.log(formData)
     try {
-      const res = await fetch(`${API_URL}/api/homepage`, {
+      const res = await fetch(`${API_URL}/api/aboutpage`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -50,33 +50,33 @@ const page = () => {
 
   return (
     <div className='grid grid-cols-1 md:grid-cols-2 gap-4 items-center bg-white p-8 rounded-lg shadow-lg '>
-      <div className='space-y-4'>
+      <div className='space-y-4' >
         <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col gap-2'>
-          <label htmlFor='title'>Hero Card Title</label>
+          <label htmlFor="first_para">First Paragraph</label>
           <textarea
-            {...register('title')}
-            id='title'
-            className='text-sm border overflow-hidden min-h-18 resize-none rounded-md border-jada-purple-700 p-1'
+            {...register('first_para')}
+            id='first_para'
+
+
+            className='text-sm border overflow-hidden min-h-24 resize-none rounded-md border-jada-purple-700 p-1'
           />
-          <label htmlFor='subtitle'> Hero Card Subtitle</label>
+           <label htmlFor="secondPara">Second Paragraph</label>
           <textarea
-            {...register('sub_title')}
+            {...register('second_para')}
             id='secondPara'
-            className='text-sm overflow-hidden border min-h-18 resize-none rounded-md border-jada-purple-700 p-1'
+            className='text-sm overflow-hidden border min-h-24 resize-none rounded-md border-jada-purple-700 p-1'
           />
-          <label htmlFor='pagetext'>Page Text</label>
+          <label htmlFor="infoPart">Information Summary</label>
           <textarea
-            {...register('page_text')}
-            id='pagetext'
-            className='text-sm  border min-h-18 resize-none rounded-md border-jada-purple-700 p-1'
+            {...register('info')}
+            id='infoPart'
+            className='text-sm  border min-h-24 resize-none rounded-md border-jada-purple-700 p-1'
           />
-          <button type='submit' className=' bg-blue-100'>
-            Save Changes
-          </button>
+          <button type='submit' className=' bg-blue-100'>Save Changes</button>
         </form>
       </div>
     </div>
   )
 }
 
-export default page
+export default Dashboard

@@ -3,7 +3,7 @@ import Image from 'next/image'
 import Button from './Button'
 import { API_URL } from '@/config'
 import Link from 'next/link'
-
+import HeroImage from '../dashboard/components/HeroImage'
 interface HeroCardProps {
   imageUrl?: string
   imageAlt?: string
@@ -12,7 +12,7 @@ interface HeroCardProps {
   body?: string
 }
 export const getHeroData = async () => {
-  const res = await fetch(`${API_URL}/api/homepage`, {cache: 'no-store'})
+  const res = await fetch(`${API_URL}/api/homepage?populate=*`, {cache: 'no-store'})
   if (!res.ok) {
     throw new Error('Failed to fetch data')
   }
@@ -31,13 +31,7 @@ const HeroCard: React.FC<HeroCardProps> = async ({
   return (
     <div className='grid grid-cols-1 md:grid-cols-2 gap-4 items-center bg-white p-8 rounded-lg shadow-lg'>
       <div className='mb-4 md:mb-0'>
-        <Image
-          src='/jada.png'
-          alt={imageAlt}
-          width={500}
-          height={300}
-          className='rounded-lg'
-        />
+        <HeroImage/>
       </div>
       <div className='space-y-4'>
         <h1 className='text-5xl font-bold'>{heroData.title}</h1>
@@ -50,7 +44,7 @@ const HeroCard: React.FC<HeroCardProps> = async ({
             <Button text='Book Jada' additionalClasses='w-full' />
           </Link>
           <Link href='/about'>
-            <button className='w-full rounded-md bg-white text-jada-purple-800 border-2 border-jada-purple-800 hover:bg-jada-purple-400 hover:text-jada-purple-900 hover:underline hover:decoration-dashed text-underline-offset-2px transition-colors'>
+            <button className='w-full rounded-md bg-white text-jada-purple-800 border-2 border-jada-purple-800 hover:bg-jada-purple-400 hover:text-jada-purple-900 hover:underline hover:decoration-dashed transition-colors text-1xl p-2'>
               Learn More
             </button>
           </Link>

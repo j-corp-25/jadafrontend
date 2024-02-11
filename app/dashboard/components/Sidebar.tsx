@@ -7,22 +7,21 @@ import { usePathname } from 'next/navigation';
 const links = [
   { href: '/dashboard', label: 'Home Page' },
   { href: '/dashboard/about', label: 'About Page' },
-  { href: '/dashboard/contact', label: 'Contact Page' },
-  { href: '/dashboard/services', label: 'Services Page' },
-  { href: '/dashboard/resources', label: 'Resources Page' },
-  { href: '/dashboard/faq', label: 'FAQ Page' },
-  { href: '/dashboard/testimonials', label: 'Testimonials Page' },
+  // { href: '/dashboard/services', label: 'Services Page' },
+  // { href: '/dashboard/resources', label: 'Resources Page' },
+  // { href: '/dashboard/faq', label: 'FAQ Page' },
+  // { href: '/dashboard/testimonials', label: 'Testimonials Page' },
   { href: '/dashboard/upload', label: 'Image & Logo Upload' },
-  { href: '/dashboard/profile', label: 'Change Email / Password' },
+  // { href: '/dashboard/profile', label: 'Change Email / Password' },
 ];
 
 const Sidebar: React.FC = () => {
   const pathname = usePathname();
 
   const handleSignOut = async () => {
-   
+
   };
-  
+
 
   return (
     <div className="flex flex-col w-64 bg-white shadow-md h-screen">
@@ -35,7 +34,7 @@ const Sidebar: React.FC = () => {
       <div className="mt-auto mb-10 px-4 w-full">
         <Button
           text="Sign Out"
-          additionalClasses="w-full" 
+          additionalClasses="w-full"
           onClick={handleSignOut}
         />
       </div>
