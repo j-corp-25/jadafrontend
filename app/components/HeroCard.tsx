@@ -12,18 +12,34 @@ interface HeroCardProps {
 }
 
 const getHeroImage = async () => {
-  const res = await fetch(`${API_URL}/api/imagepage?populate=*`,{cache: 'no-store'})
-  const data = await res.json()
-  return data.data.attributes.Heroimage.data.attributes.formats.small
+  const res = await fetch(`${API_URL}/api/imagepage?populate=*`, { cache: 'no-store' });
+  const data = await res.json();
+
+
+  const smallImageUrl = data?.data?.attributes?.Heroimage?.data?.attributes?.formats?.small?.url;
+
+
+  if (!smallImageUrl) {
+    console.warn('Hero image URL not found');
+    return null;
+  }
+
+  return {
+    url: smallImageUrl,
+    name: data.data.attributes.Heroimage.data.attributes.name,
+  };
 }
 
+
 export const getHeroData = async () => {
-  const res = await fetch(`${API_URL}/api/homepage?populate=*`, {cache: 'no-store'})
+  const res = await fetch(`${API_URL}/api/homepage?populate=*`, {
+    cache: 'no-store',
+  })
   if (!res.ok) {
     throw new Error('Failed to fetch data')
   }
-  const data = await res.json();
-  return data.data.attributes;
+  const data = await res.json()
+  return data.data.attributes
 }
 
 const HeroCard: React.FC<HeroCardProps> = async ({
@@ -38,7 +54,13 @@ const HeroCard: React.FC<HeroCardProps> = async ({
   return (
     <div className='grid grid-cols-1 md:grid-cols-2 gap-4 items-center bg-white p-8 rounded-lg shadow-lg'>
       <div className='mb-4 md:mb-0'>
-      <Image src={image.url} height={500} width={300} alt={image.name} className='rounded-lg'/>
+        <Image
+          src={image.url}
+          height={500}
+          width={300}
+          alt={image.name}
+          className='rounded-lg'
+        />
       </div>
       <div className='space-y-4'>
         <h1 className='text-5xl font-bold'>{heroData.title}</h1>
