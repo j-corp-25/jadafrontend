@@ -32,19 +32,19 @@ const HeroCard = async () => {
 
 
   return (
-    <div className='grid grid-cols-1 md:grid-cols-2 gap-4 items-center bg-white p-8 rounded-lg shadow-lg'>
-      <div className='mb-4 md:mb-0'>
+    <div className='grid grid-cols-1 md:grid-cols-2 gap-4 items-center bg-white p-5 rounded-lg shadow-lg'>
+      <div className='mb-4 md:mb-2 shadow-2xl'>
         {image && (
           <Image
             src={image.url}
-            height={450}
+            height={500}
             width={300}
             alt={image.name}
-            className='rounded-lg'
+            className='rounded-lg w-full'
           />
         )}
       </div>
-      <div className='space-y-4'>
+      <div className='space-y-5'>
         <h1 className='text-5xl font-bold'>{heroData.title}</h1>
         <h2 className='text-3xl text-gray-700'>{heroData.sub_title}</h2>
         <p className='text-lg'>{heroData.page_text}</p>

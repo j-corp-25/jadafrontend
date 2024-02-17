@@ -27,12 +27,12 @@ const DesktopNavbar: React.FC = () => {
   )
 
   return (
-    <nav className='hidden md:flex md:flex-row bg-jada-green-700 px-2 items-center md:justify-between h-20 shadow-xl container-fluid whitespace-nowrap'>
-      <div className='flex flex-row items-center  '>
+    <nav className='hidden md:flex md:flex-row bg-jada-green-700 px-2 items-center md:justify-between h-20 shadow-xl container-fluid whitespace-nowrap px-2 mx-auto'>
+      <div className='flex flex-row items-center mx-10 gap-5 '>
         <Link href='/'>
           {Logo && <Image src={Logo} width={50} height={50} alt='logo'/>}
         </Link>
-        <ul className='flex gap-5'>
+        <ul className='flex gap-3'>
           {filteredMenuItems.map((item) => (
             <MenuItem
               key={item.href}
@@ -43,7 +43,7 @@ const DesktopNavbar: React.FC = () => {
           ))}
         </ul>
       </div>
-      <div className=''>
+      <div className='mr-10'>
         <Link href='/booking'>
           <Button text='Book Jada' />
         </Link>
