@@ -5,7 +5,9 @@ import Image from 'next/image'
 
 
 export const getHeroImage = async () => {
-  const res = await fetch(`${API_URL}/api/imagepage?populate=*`)
+  const res = await fetch(`${API_URL}/api/imagepage?populate=*`,{
+    cache: 'no-store',
+  })
   if (!res.ok) {
     throw new Error('Failed to fetch data')
   }

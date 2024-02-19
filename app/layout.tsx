@@ -2,10 +2,10 @@ import type { Metadata } from 'next'
 import { Nunito } from 'next/font/google'
 import './globals.css'
 import Provider from './Provider'
-import { Analytics } from '@vercel/analytics/react';
+import { Analytics } from '@vercel/analytics/react'
 import Navbar from '@/app/components/Navbar'
-import Footer from './components/Footer';
-
+import Footer from './components/Footer'
+// import { LogoProvider } from './context/LogoContext'
 const nunito = Nunito({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
@@ -21,11 +21,15 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <Provider>
-        <body className={`${nunito.className} antialiased container-full mx-auto bg-jada-green-500`}>
-          <Navbar/>
-          {children}
-          <Footer/>
-        <Analytics />
+        <body
+          className={`${nunito.className} antialiased container-full mx-auto bg-jada-green-500`}
+        >
+          {/* <LogoProvider> */}
+            <Navbar />
+            {children}
+            <Footer />
+          {/* </LogoProvider> */}
+          <Analytics />
         </body>
       </Provider>
     </html>

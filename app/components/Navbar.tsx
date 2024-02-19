@@ -1,14 +1,15 @@
 'use client'
-import MobileNavbar from './MobileNavbar';
-import DesktopNavbar from './DesktopNavbar';
+import MobileNavbar from './MobileNavbar'
+import DesktopNavbar from './DesktopNavbar'
 
-const Navbar: React.FC = () => {
-    return (
-        <>
-            <MobileNavbar />
-            <DesktopNavbar />
-        </>
-    );
-};
+const Navbar = () => {
+  return (
+    <>
+      <MobileNavbar />
 
-export default Navbar;
+      <DesktopNavbar />
+    </>
+  )
+}
+
+export default Navbar

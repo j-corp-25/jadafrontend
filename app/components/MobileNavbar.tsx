@@ -7,8 +7,9 @@ import { IoCloseOutline } from 'react-icons/io5'
 import { useSession } from 'next-auth/react'
 import LogoImage from '../dashboard/components/LogoImage'
 import { usePathname } from 'next/navigation'
-import { useLogos } from '../context/LogoContext'
-import Image from 'next/image'
+// import { useLogos } from '../context/LogoContext'
+import Logo from './Logo'
+// import Image from 'next/image'
 
 const menuItems = [
   { href: '/about', label: 'About Jada' },
@@ -21,7 +22,7 @@ const menuItems = [
 ]
 
 const MobileNavbar: React.FC = () => {
-  const {Logo } = useLogos();
+  // const {Logo } = useLogos();
   const pathname = usePathname()
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const { status } = useSession()
@@ -38,10 +39,11 @@ const MobileNavbar: React.FC = () => {
 
   return (
     <nav className='md:hidden bg-jada-green-700 px-4 flex items-center justify-between h-20 shadow-xl'>
-      <Link href='/'>
+      {/* <Link href='/'>
       {Logo && <Image src={Logo} width={50} height={50} alt='logo'/>}
-     
-      </Link>
+
+      </Link> */}
+      <Logo/>
 
       <div
         className={`absolute ${

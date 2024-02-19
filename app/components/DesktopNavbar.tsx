@@ -1,12 +1,11 @@
-'use client'
 import { useSession } from 'next-auth/react'
 import MenuItem from './MenuItem' // Your MenuItem component
 import Button from './Button' // Your Button component
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { useLogos } from '../context/LogoContext'
+// import { useLogos } from '../context/LogoContext'
 import Image from 'next/image'
-
+import Logo from './Logo'
 const menuItems = [
   { href: '/about', label: 'About Jada' },
   { href: '/services', label: 'Services' },
@@ -18,7 +17,7 @@ const menuItems = [
 ]
 
 const DesktopNavbar: React.FC = () => {
-  const {Logo } = useLogos();
+  // const {Logo } = useLogos();
   const pathname = usePathname()
   const { status } = useSession()
 
@@ -29,9 +28,8 @@ const DesktopNavbar: React.FC = () => {
   return (
     <nav className='hidden md:flex md:flex-row bg-jada-green-700 px-2 items-center md:justify-between h-20 shadow-xl container-fluid whitespace-nowrap px-2 mx-auto'>
       <div className='flex flex-row items-center mx-10 gap-5 '>
-        <Link href='/'>
-          {Logo && <Image src={Logo} width={50} height={50} alt='logo'/>}
-        </Link>
+        <Logo/>
+
         <ul className='flex gap-3'>
           {filteredMenuItems.map((item) => (
             <MenuItem
