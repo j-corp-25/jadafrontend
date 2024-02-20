@@ -1,9 +1,15 @@
 import { API_URL } from '@/config'
+import type { Metadata } from 'next'
 
 interface Service {
   id: number
   title: string
   description: string
+}
+
+export const metadata: Metadata = {
+  title: 'Jada | Services',
+  description: 'Your best Nanny is here',
 }
 
 interface ServicePageAttributes {
