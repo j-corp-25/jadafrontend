@@ -51,8 +51,8 @@ async function getData() {
   return data.data.attributes as AboutPageAttributes
 }
 
-async function getAboutImage(){
-  const res = await fetch(`${API_URL}/api/imagepage?populate=*`,{
+async function getAboutImage() {
+  const res = await fetch(`${API_URL}/api/imagepage?populate=*`, {
     cache: 'no-store',
   })
   if (!res.ok) {
@@ -65,13 +65,7 @@ async function getAboutImage(){
 export default async function Page() {
   const data = await getData()
   const image = await getAboutImage()
-  const {
-    first_para,
-    second_para,
-    certificates,
-    info,
-
-  } = data
+  const { first_para, second_para, certificates, info } = data
 
   // console.log({ RESPONSE: data })
   // console.log({ 'IMAGE RESPONSE': data.image.data.attributes.formats })
@@ -83,7 +77,11 @@ export default async function Page() {
         <p className='text-gray-800 text-lg md:text-xl'>{second_para}</p>
         <p className='text-gray-600 text-base md:text-lg'>{info}</p>
         <div>
-          <Image src={image.url} height={300} width={200} alt={'jada'}/>
+          {image ? (
+            <Image src={image.url} height={300} width={200} alt={'jada'} />
+          ) : (
+            <p>Image not found</p>
+          )}
         </div>
 
         <ul className='list-disc list-inside text-lg md:text-xl text-left space-y-2'>
