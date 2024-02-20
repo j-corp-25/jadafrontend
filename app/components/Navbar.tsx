@@ -2,12 +2,14 @@
 import MobileNavbar from './MobileNavbar'
 import DesktopNavbar from './DesktopNavbar'
 
-const Navbar = () => {
+const Navbar = ({ children }) => {
   return (
     <>
-      <MobileNavbar />
+      <MobileNavbar>{children}</MobileNavbar>
 
-      <DesktopNavbar />
+      <DesktopNavbar>
+        {children}
+      </DesktopNavbar>
     </>
   )
 }

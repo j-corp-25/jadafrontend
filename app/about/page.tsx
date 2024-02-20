@@ -51,9 +51,20 @@ async function getData() {
   return data.data.attributes as AboutPageAttributes
 }
 
+export const getAboutImage = async () => {
+  const res = await fetch(`${API_URL}/api/imagepage?populate=*`,{
+    cache: 'no-store',
+  })
+  if (!res.ok) {
+    throw new Error('Failed to fetch data')
+  }
+  const data = await res.json()
+  return data.data.attributes.Aboutimage.data.attributes.formats.medium
+}
+
 export default async function Page() {
   const data = await getData()
-  const imagedata = data.image.data.attributes.formats.small
+  const image = await getAboutImage()
   const {
     first_para,
     second_para,
@@ -72,7 +83,7 @@ export default async function Page() {
         <p className='text-gray-800 text-lg md:text-xl'>{second_para}</p>
         <p className='text-gray-600 text-base md:text-lg'>{info}</p>
         <div>
-          <Image src={imagedata.url} height={300} width={200} alt={'jada'}/>
+          <Image src={image.url} height={300} width={200} alt={'jada'}/>
         </div>
 
         <ul className='list-disc list-inside text-lg md:text-xl text-left space-y-2'>

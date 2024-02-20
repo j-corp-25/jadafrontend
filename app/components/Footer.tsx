@@ -1,8 +1,8 @@
 'use client'
 import Link from 'next/link'
 import { signIn, signOut, useSession } from 'next-auth/react'
-import Image from 'next/image'
-import Logo from './Logo'
+// import Image from 'next/image'
+// import Logo from './Logo'
 import LogoImage from '../dashboard/components/LogoImage'
 // import { useLogos } from '../context/LogoContext'
 
@@ -10,7 +10,7 @@ interface CustomUser {
   username?: string
 }
 
-const Footer = () => {
+const Footer = ({children}) => {
   // const {Logo } = useLogos();
   const { data: session } = useSession()
   const user = session?.user as CustomUser
@@ -21,7 +21,7 @@ const Footer = () => {
           {/* <Link href='/'>
           {Logo && <Image src={Logo} width={50} height={50} alt='logo'/>}
         </Link> */}
-          <Logo />
+          {children}
           <span className='self-center  text-jada-purple-700 text-2xl font-semibold whitespace-nowrap p-1 mt-5'>
             Jadas website name
           </span>

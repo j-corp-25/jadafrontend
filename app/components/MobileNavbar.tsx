@@ -5,23 +5,24 @@ import Link from 'next/link'
 import { FaBars } from 'react-icons/fa'
 import { IoCloseOutline } from 'react-icons/io5'
 import { useSession } from 'next-auth/react'
-import LogoImage from '../dashboard/components/LogoImage'
+// import LogoImage from '../dashboard/components/LogoImage'
 import { usePathname } from 'next/navigation'
 // import { useLogos } from '../context/LogoContext'
-import Logo from './Logo'
+// import Logo from './Logo'
 // import Image from 'next/image'
 
 const menuItems = [
   { href: '/about', label: 'About Jada' },
   { href: '/services', label: 'Services' },
-  { href: '/faq', label: 'FAQ' },
+  {href:'/testimonials', label: 'Testimonials'},
   { href: '/booking', label: 'Book Jada' },
   { href: '/resources', label: 'Resources' },
   { href: '/contact', label: 'Contact' },
+  { href: '/faq', label: 'FAQ' },
   { href: '/dashboard', label: 'Dashboard' },
 ]
 
-const MobileNavbar: React.FC = () => {
+const MobileNavbar = ({children}) => {
   // const {Logo } = useLogos();
   const pathname = usePathname()
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -43,7 +44,7 @@ const MobileNavbar: React.FC = () => {
       {Logo && <Image src={Logo} width={50} height={50} alt='logo'/>}
 
       </Link> */}
-      <Logo/>
+      {children}
 
       <div
         className={`absolute ${
