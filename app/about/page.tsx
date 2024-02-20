@@ -51,7 +51,7 @@ async function getData() {
   return data.data.attributes as AboutPageAttributes
 }
 
-export const getAboutImage = async () => {
+async function getAboutImage(){
   const res = await fetch(`${API_URL}/api/imagepage?populate=*`,{
     cache: 'no-store',
   })
