@@ -34,7 +34,7 @@ const HeroCard = async () => {
 
 
   return (
-    <div className='grid grid-cols-1 md:grid-cols-2 gap-4 items-center bg-white p-5 rounded-lg shadow-lg'>
+    <div className='grid grid-cols-1 md:grid-cols-2 gap-4 items-center bg-jada-yellow-base p-5 rounded-lg shadow-lg min-w-[18.75rem]'>
       <div className='mb-4 md:mb-2 shadow-2xl'>
         {image && (
           <Image

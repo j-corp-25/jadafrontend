@@ -8,7 +8,7 @@ import { usePathname } from 'next/navigation'
 
 const menuItems = [
   { href: '/about', label: 'About Jada' },
-  { href: '/services', label: 'Services' },
+  // { href: '/services', label: 'Services' },
   { href: '/testimonials', label: 'Testimonials' },
   { href: '/booking', label: 'Book Jada' },
   { href: '/resources', label: 'Resources' },
@@ -27,11 +27,11 @@ const DesktopNavbar = ({ children }) => {
   )
 
   return (
-    <nav className='hidden md:flex md:flex-row bg-jada-bg-100 items-center md:justify-center h-20 shadow-xl min-w-[12.25rem] container-fluid'>
-      <div className='flex flex-row justify-between items-center'>
-        <div className='min-w-[2.25rem] px-2'>{children}</div>
+    <nav className='hidden md:flex md:flex-row bg-jada-bg-100 items-center h-20 shadow-xl md:justify-center container-fluid whitespace-nowrap'>
+      <div className='flex flex-row justify-between items-center mx-[12.25rem] w-full' >
+        <div className='min-w-[2.25rem] mx-1'>{children}</div>
 
-        <ul className='flex mx-5'>
+        <ul className='flex space-x-2'>
           {filteredMenuItems.map((item) => (
             <MenuItem
               key={item.href}
@@ -42,7 +42,7 @@ const DesktopNavbar = ({ children }) => {
           ))}
         </ul>
 
-        <div  >
+        <div className='mx-1' >
           <Link href='/booking'>
             <Button text='Book Jada' />
           </Link>
