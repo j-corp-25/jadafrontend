@@ -14,6 +14,7 @@ module.exports = {
       },
       colors: {
         'jada-text': {
+          "base": '#333333',
           50: '#f2f2f2',
           100: '#e6e6e6',
           200: '#cccccc',
@@ -38,8 +39,10 @@ module.exports = {
           800: '#333333',
           900: '#1a1a1a',
           950: '#0d0d0d',
+          "base": '#F0F0F0',
         },
         'jada-pink': {
+          "base": '#F687F8',
           50: '#fde7fe',
           100: '#fbcffc',
           200: '#f89ff9',
@@ -53,6 +56,7 @@ module.exports = {
           950: '#180118',
         },
         'jada-yellow': {
+          "base": '#FFE866',
           50: '#fffce5',
           100: '#fffacc',
           200: '#fff599',
@@ -66,6 +70,7 @@ module.exports = {
           950: '#1a1700',
         },
         'jada-accent': {
+          "base": '#000080',
           50: '#e5e5ff',
           100: '#ccccff',
           200: '#9999ff',
@@ -90,6 +95,7 @@ module.exports = {
           800: '#0c415a',
           900: '#06212d',
           950: '#031017',
+          "base": '#89CFF0',
         },
       },
     },

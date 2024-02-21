@@ -10,11 +10,11 @@ interface MenuItemProps {
 const MenuItem: React.FC<MenuItemProps> = ({ href, label, isActive }) => {
     return (
         <li className={clsx(
-            "hover:bg-jada-purple-700 hover:text-white transition-colors duration-100 rounded-lg ",
-            isActive && "bg-jada-purple-700 text-white" // Highlight the active link
+            "hover:bg-jada-tertiary-base transition-colors duration-100 rounded-lg font-semibold mx-1 ",
+            isActive && "bg-jada-tertiary-base" // Highlight the active link
         )}>
             <Link href={href}>
-                <span className="block px-2 py-2 text-md font-medium">{label}</span>
+                <span className="block px-1 py-1 ">{label}</span>
             </Link>
         </li>
     );

@@ -17,7 +17,7 @@ const menuItems = [
   { href: '/dashboard', label: 'Dashboard' },
 ]
 
-const DesktopNavbar= ({children}) => {
+const DesktopNavbar = ({ children }) => {
   // const {Logo } = useLogos();
   const pathname = usePathname()
   const { status } = useSession()
@@ -27,11 +27,11 @@ const DesktopNavbar= ({children}) => {
   )
 
   return (
-    <nav className='hidden md:flex md:flex-row bg-jada-green-700 px-2 items-center md:justify-between h-20 shadow-xl container-fluid whitespace-nowrap px-2 mx-auto'>
-      <div className='flex flex-row items-center mx-10 gap-5 '>
-        {children}
+    <nav className='hidden md:flex md:flex-row bg-jada-bg-100 items-center md:justify-center h-20 shadow-xl min-w-[12.25rem] container-fluid whitespace-nowrap'>
+      <div className='flex flex-row justify-between items-center'>
+        <div className='min-w-[2.25rem]'>{children}</div>
 
-        <ul className='flex gap-3'>
+        <ul className='flex mx-10'>
           {filteredMenuItems.map((item) => (
             <MenuItem
               key={item.href}
@@ -41,11 +41,12 @@ const DesktopNavbar= ({children}) => {
             />
           ))}
         </ul>
-      </div>
-      <div className='mr-10'>
-        <Link href='/booking'>
-          <Button text='Book Jada' />
-        </Link>
+
+        <div  >
+          <Link href='/booking'>
+            <Button text='Book Jada' />
+          </Link>
+        </div>
       </div>
     </nav>
   )
