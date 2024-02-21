@@ -27,11 +27,11 @@ const DesktopNavbar = ({ children }) => {
   )
 
   return (
-    <nav className='hidden md:flex md:flex-row bg-jada-bg-100 items-center md:justify-center h-20 shadow-xl min-w-[12.25rem] container-fluid whitespace-nowrap'>
+    <nav className='hidden md:flex md:flex-row bg-jada-bg-100 items-center md:justify-center h-20 shadow-xl min-w-[12.25rem] container-fluid'>
       <div className='flex flex-row justify-between items-center'>
-        <div className='min-w-[2.25rem]'>{children}</div>
+        <div className='min-w-[2.25rem] px-2'>{children}</div>
 
-        <ul className='flex mx-10'>
+        <ul className='flex mx-5'>
           {filteredMenuItems.map((item) => (
             <MenuItem
               key={item.href}
