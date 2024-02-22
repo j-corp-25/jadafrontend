@@ -53,7 +53,7 @@ const HeroCard = async () => {
                 height={300}
                 width={300}
                 alt={image.name}
-                className='rounded-lg shadow-[0_15px_15px_-10px_rgba(0,0,0,1)] border-8 border-jada-tertiary-base'
+                className='shadow-[0_15px_15px_-10px_rgba(0,0,0,1)] border-8 border-jada-tertiary-base rounded-3xl'
               />
             )}
           </div>
