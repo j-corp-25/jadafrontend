@@ -1,10 +1,5 @@
-'use client'
 import HeroCard from './components/HeroCard'
 
 export default function Home() {
-  return (
-    <main className='flex min-h-screen flex-col items-center justify-between p-12'>
-      <HeroCard />
-    </main>
-  )
+  return <HeroCard />
 }
