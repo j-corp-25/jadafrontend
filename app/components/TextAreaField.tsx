@@ -11,7 +11,7 @@ interface TextAreaFieldProps {
 const TextAreaField: React.FC<TextAreaFieldProps> = ({ label, name, required = false, value, onChange }) => {
   return (
     <div className="mb-6">
-      <label htmlFor={name} className="block text-gray-700 text-sm font-bold mb-2">{label}</label>
+      <label htmlFor={name} className="block text-gray-700 text-[1.25rem] font-bold mb-2">{label}</label>
       <textarea
         id={name}
         name={name}

@@ -7,12 +7,13 @@ interface TextFieldProps {
   required?: boolean;
   value: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  className?: string;
 }
 
 const TextField: React.FC<TextFieldProps> = ({ label, name, type, required = false, value, onChange }) => {
   return (
     <div className="mb-4">
-      <label htmlFor={name} className="block text-gray-700 text-sm font-bold mb-2">{label}</label>
+      <label htmlFor={name} className="block text-gray-700 text-[1.25rem] font-bold mb-2">{label}</label>
       <input
         type={type}
         id={name}

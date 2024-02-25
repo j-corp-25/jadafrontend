@@ -1,13 +1,15 @@
-import React from "react";
-import ContactForm from "../components/ContactForm";
+import React from 'react'
+import ContactForm from '../components/ContactForm'
 
 const ContactPage: React.FC = () => {
   return (
-    <div className="container mx-auto p-4">
-      <h1 className="text-2xl font-bold text-center mb-8">Contact Jada</h1>
-      <ContactForm />
-    </div>
-  );
-};
+    <main className='justify-between min-h-screen w-full content-center'>
+      <div className='flex-col mx-12 md:mx-24 lg:mx-96 space-y-10 flex '>
+        <h1 className='text-2xl font-bold text-center my-10'>Contact Jada</h1>
+        <ContactForm />
+      </div>
+    </main>
+  )
+}
 
-export default ContactPage;
+export default ContactPage
