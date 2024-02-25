@@ -79,7 +79,7 @@ export default async function Page() {
             {image ? (
               <Image
                 src={image.url}
-                className=' rounded-xl border border-jada-tertiary-base border-8 shadow-[0_15px_15px_-10px_rgba(0,0,0,1)] '
+                className=' rounded-xl border-jada-tertiary-base border-8 shadow-[0_15px_15px_-10px_rgba(0,0,0,1)] '
                 alt='jada'
                 height={300}
                 width={300}
