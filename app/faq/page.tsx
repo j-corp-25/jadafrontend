@@ -28,17 +28,20 @@ const FAQPage = async () => {
   const { faqs } = data
 
   return (
-    <div className='container mx-auto p-4 flex flex-col md:flex-row '>
+  <main className='justify-between min-h-screen w-full'>
+
+    <div className='p-4 flex flex-col md:flex-row mx-12 md:mx-24 lg:mx-96 '>
       <div className='flex-1 p-4'>
-        <h1 className='text-3xl font-bold mb-8 text-center text-jada-purple-800'>
+        <h1 className='text-3xl font-bold  text-center text-jada-purple-800 mb-8'>
           Frequently Asked Questions
         </h1>
 
         {faqs.map((faq, index) => (
           <FaqItem key={index} question={faq.question} answer={faq.answer} />
-        ))}
+          ))}
       </div>
     </div>
+          </main>
   )
 }
 
