@@ -71,29 +71,34 @@ export default async function Page() {
   // console.log({ 'IMAGE RESPONSE': data.image.data.attributes.formats })
 
   return (
-    <div className='flex flex-col items-center justify-between min-h-screen px-4 md:px-8 py-8'>
-      <div className='w-full max-w-3xl mx-auto flex flex-col space-y-10'>
-        <p className='text-gray-800 text-lg md:text-xl'>{first_para}</p>
-        <p className='text-gray-800 text-lg md:text-xl'>{second_para}</p>
-        <p className='text-gray-600 text-base md:text-lg'>{info}</p>
-        <div>
+    <div className='flex flex-col items-center justify-center px-4 py-8'>
+      <div className='flex flex-col md:flex-row items-center justify-center md:space-x-8'>
+        {/* Image container */}
+        <div className='mt-10 max-w-md '>
           {image ? (
-            <Image src={image.url} height={300} width={200} alt={'jada'} />
+            <Image
+              src={image.url}
+              className=' rounded-xl border border-jada-tertiary-base border-8 shadow-[0_15px_15px_-10px_rgba(0,0,0,1)] '
+              alt='jada'
+              height={300}
+              width={300}
+
+
+            />
           ) : (
             <p>Image not found</p>
           )}
         </div>
 
-        <ul className='list-disc list-inside text-lg md:text-xl text-left space-y-2'>
-          {certificates.map((cert, index) => (
-            <li
-              key={index}
-              className='text-jada-purple-700 hover:text-indigo-700 transition-colors'
-            >
-              {cert.title}
-            </li>
-          ))}
-        </ul>
+        {/* Text container */}
+        <div className='mt-8 md:mt-10 p-6 rounded-lg  max-w-md flex flex-col'>
+          <span className='text-4xl md:text-3xl font-regular text-jada-text-base mb-4 self-center'>
+            About Me
+          </span>
+          <p className='text-jada-text-base md:text-lg text-xl bg-jada-yellow-base text-pretty p-5 rounded-lg shadow-[0_15px_15px_-10px_rgba(0,0,0,1)] space-y-5 '>
+            {info}
+          </p>
+        </div>
       </div>
     </div>
   )

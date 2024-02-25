@@ -27,7 +27,7 @@ const DesktopNavbar = ({ children }) => {
   )
 
   return (
-    <nav className='hidden md:flex md:flex-row bg-jada-bg-100 items-center h-20 shadow-xl md:justify-center container-fluid whitespace-nowrap'>
+    <nav className='hidden md:flex md:flex-row bg-jada-bg-base items-center h-20 shadow-xl md:justify-center container-fluid whitespace-nowrap'>
       <div className='flex flex-row justify-between items-center mx-[12.25rem] w-full' >
         <div className='min-w-[2.25rem] mx-1'>{children}</div>
 
