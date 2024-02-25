@@ -1,5 +1,6 @@
 import { API_URL } from '@/config'
-
+import { FaExternalLinkAlt } from 'react-icons/fa'
+import Link from 'next/link'
 interface Resource {
   id: number
   title: string
@@ -22,25 +23,39 @@ async function getData() {
   return data.data.attributes as ResourcePageAttributes
 }
 
-export default async function ServicesPage() {
+export default async function ResourcesPage() {
   const data = await getData()
   const { resources } = data
   return (
-    <div className='container mx-auto p-4 flex flex-col md:flex-row '>
-      <div className='flex-1 p-4'>
-        <h1 className='text-3xl font-bold mb-8 text-center text-jada-purple-800'>
-          Resources
-        </h1>
-        {resources.map((resource, index) => (
-          <div key={index} className='mb-8 p-4 rounded-lg shadow-lg bg-white'>
-            <h2 className='text-2xl font-semibold text-jada-purple-700 mb-4'>
-              {resource.title}
-            </h2>
-            <p>{resource.url}</p>
-            <p className='text-md text-gray-700'>{resource.description}</p>
-          </div>
-        ))}
+    <main className='justify-between min-h-screen w-full'>
+      <div className=' p-4 flex flex-col md:flex-row mx-12 md:mx-24 lg:mx-72  '>
+        <div className='flex-1 p-4'>
+          <h1 className='text-[2.13rem] font-bold mb-8 text-center text-jada-text-base'>
+            Resources
+          </h1>
+          {resources.map((resource, index) => (
+            <div key={index} className='mb-8 p-4 rounded-lg'>
+              <h2 className='text-[1.25rem] font-regular mb-2'>
+                {resource.title}
+              </h2>
+              <div className='mb-2'>
+                <a
+                  href={resource.url}
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  className='text-jada-text-base hover:text-jada-accent-base underline underline-offset-2 decoration-jada-pink-base text-[1rem]'
+                >
+                  {resource.url}{' '}
+                  <FaExternalLinkAlt className='inline-block ml-1 mb-1' />
+                </a>
+              </div>
+              <p className='text-md text-jada-text-base  bg-jada-yellow-base p-2 max-w-md rounded-lg'>
+                {resource.description}
+              </p>
+            </div>
+          ))}
+        </div>
       </div>
-    </div>
+    </main>
   )
 }

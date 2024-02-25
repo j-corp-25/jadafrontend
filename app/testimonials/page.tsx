@@ -26,7 +26,7 @@ export default async function TestimonialsPage() {
   const { testimonials } = data
   return (
     <main className='justify-between min-h-screen w-full'>
-      <div className=' p-4 flex flex-col md:flex-row mx-8 md:mx-16 lg:mx-60 '>
+      <div className=' p-4 flex flex-col md:flex-row mx-12 md:mx-24 lg:mx-72 '>
         <div className='flex-1 p-4'>
           <h1 className='text-3xl font-bold mb-8 text-center '>Testimonials</h1>
           {testimonials.map((testimonial, index) => (
