@@ -31,7 +31,10 @@ export default async function ServicesPage() {
   const data = await getData()
   const { services } = data
   return (
-    <div className='container mx-auto p-4 flex flex-col md:flex-row '>
+    <main className='justify-between min-h-screen w-full'>
+      <div className='p-4 flex flex-col md:flex-row mx-12 md:mx-24 lg:mx-96 '>
+
+
       <div className='flex-1 p-4'>
         <h1 className='text-3xl font-bold mb-8 text-center text-jada-purple-800'>
           My Services
@@ -45,6 +48,7 @@ export default async function ServicesPage() {
           </div>
         ))}
       </div>
-    </div>
+        </div>
+    </main>
   )
 }
