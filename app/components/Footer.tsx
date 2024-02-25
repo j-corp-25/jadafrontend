@@ -1,6 +1,7 @@
 'use client'
 import Link from 'next/link'
 import { signIn, signOut, useSession } from 'next-auth/react'
+import { FaInstagram, FaFacebook,FaTwitter } from 'react-icons/fa'
 // import Image from 'next/image'
 // import Logo from './Logo'
 import LogoImage from '../dashboard/components/LogoImage'
@@ -15,13 +16,26 @@ const Footer = ({ children }) => {
   const { data: session } = useSession()
   const user = session?.user as CustomUser
   return (
-    <footer className='bg-jada-bg-base shadow-inner '>
-      <div className='flex flex-col  md:flex-row items-center space-y-5 md:space-x-5 md:justify-center'>
+    <footer className='bg-jada-bg-base shadow-inner space-x-3'>
+      <div className='flex flex-col  md:flex-row items-center space-y-5 md:space-x-5 md:justify-center mx-5'>
         <div className='mt-5'>{children}</div>
 
         <span className='self-center  text-jada-text-base text-2xl font-semibold whitespace-nowrap p-1 mt-5'>
           Jadas website name
         </span>
+
+        <div className='flex flex-row space-x-3 '>
+          <a href='https://www.instagram.com/' className='text-3xl text-jada-text-base hover:text-jada-pink-700'>
+            <FaInstagram />
+          </a>
+          <a href='https://www.facebook.com/' className='text-3xl text-jada-text-base hover:text-jada-pink-700'>
+            <FaFacebook />
+          </a>
+          <a href='https://www.twitter.com/' className='text-3xl text-jada-text-base hover:text-jada-pink-700'>
+            <FaTwitter />
+          </a>
+
+        </div>
 
         <ul className='mx-5 flex  sm:w-auto flex-col md:flex-row items-center mb-6 text-sm font-medium text-gray-500 sm:mb-0 dark:text-gray-400 gap-3'>
           <li>
