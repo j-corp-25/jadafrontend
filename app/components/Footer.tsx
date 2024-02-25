@@ -16,7 +16,7 @@ const Footer = ({ children }) => {
   const { data: session } = useSession()
   const user = session?.user as CustomUser
   return (
-    <footer className='bg-jada-bg-base shadow-inner space-x-3'>
+    <footer className='bg-jada-bg-base shadow-inner'>
       <div className='flex flex-col  md:flex-row items-center space-y-5 md:space-x-5 md:justify-center mx-5'>
         <div className='mt-5'>{children}</div>
 

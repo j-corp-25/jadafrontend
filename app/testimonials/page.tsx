@@ -21,24 +21,29 @@ async function getData() {
   return data.data.attributes as TestimonialsPageAttributes
 }
 
-export default async function ServicesPage() {
+export default async function TestimonialsPage() {
   const data = await getData()
   const { testimonials } = data
   return (
-    <div className='container mx-auto p-4 flex flex-col md:flex-row '>
-      <div className='flex-1 p-4'>
-        <h1 className='text-3xl font-bold mb-8 text-center text-jada-purple-800'>
-          My Services
-        </h1>
-        {testimonials.map((testimonial, index) => (
-          <div key={index} className='mb-8 p-4 rounded-lg shadow-lg bg-white'>
-            <h2 className='text-2xl font-semibold text-jada-purple-700 mb-4'>
-              {testimonial.name}
-            </h2>
-            <p className='text-md text-gray-700'>{testimonial.text}</p>
-          </div>
-        ))}
+    <main className='justify-between min-h-screen w-full'>
+      <div className=' p-4 flex flex-col md:flex-row mx-8 md:mx-16 lg:mx-60 '>
+        <div className='flex-1 p-4'>
+          <h1 className='text-3xl font-bold mb-8 text-center '>Testimonials</h1>
+          {testimonials.map((testimonial, index) => (
+            <div
+              key={index}
+              className='mb-8 p-4 rounded-lg shadow-lg bg-jada-yellow-base flex flex-col justify-center items-center text-center  '
+            >
+              <h2 className='text-2xl font-semibold text-jada-text-base mb-4 '>
+                {testimonial.name}
+              </h2>
+              <p className=' px-2 rounded-lg  text-gray-700 bg-jada-bg-base'>
+                {testimonial.text}
+              </p>
+            </div>
+          ))}
+        </div>
       </div>
-    </div>
+    </main>
   )
 }

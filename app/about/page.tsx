@@ -71,35 +71,35 @@ export default async function Page() {
   // console.log({ 'IMAGE RESPONSE': data.image.data.attributes.formats })
 
   return (
-    <div className='flex flex-col items-center justify-center px-4 py-8'>
-      <div className='flex flex-col md:flex-row items-center justify-center md:space-x-8'>
-        {/* Image container */}
-        <div className='mt-10 max-w-md '>
-          {image ? (
-            <Image
-              src={image.url}
-              className=' rounded-xl border border-jada-tertiary-base border-8 shadow-[0_15px_15px_-10px_rgba(0,0,0,1)] '
-              alt='jada'
-              height={300}
-              width={300}
+    <main className='flex flex-col items-center justify-between min-h-screen'>
+      <div className='flex flex-col items-center justify-center px-4 py-8'>
+        <div className='flex flex-col md:flex-row items-center justify-center md:space-x-8'>
+          {/* Image container */}
+          <div className='mt-10 max-w-md '>
+            {image ? (
+              <Image
+                src={image.url}
+                className=' rounded-xl border border-jada-tertiary-base border-8 shadow-[0_15px_15px_-10px_rgba(0,0,0,1)] '
+                alt='jada'
+                height={300}
+                width={300}
+              />
+            ) : (
+              <p>Image not found</p>
+            )}
+          </div>
 
-
-            />
-          ) : (
-            <p>Image not found</p>
-          )}
-        </div>
-
-        {/* Text container */}
-        <div className='mt-8 md:mt-10 p-6 rounded-lg  max-w-md flex flex-col'>
-          <span className='text-4xl md:text-3xl font-regular text-jada-text-base mb-4 self-center'>
-            About Me
-          </span>
-          <p className='text-jada-text-base md:text-lg text-xl bg-jada-yellow-base text-pretty p-5 rounded-lg shadow-[0_15px_15px_-10px_rgba(0,0,0,1)] space-y-5 '>
-            {info}
-          </p>
+          {/* Text container */}
+          <div className='mt-8 md:mt-10 p-6 rounded-lg  max-w-md flex flex-col'>
+            <span className='text-4xl md:text-3xl font-regular text-jada-text-base mb-4 self-center'>
+              About Me
+            </span>
+            <p className='text-jada-text-base md:text-lg text-xl bg-jada-yellow-base text-pretty p-5 rounded-lg shadow-[0_15px_15px_-10px_rgba(0,0,0,1)] space-y-5 '>
+              {info}
+            </p>
+          </div>
         </div>
       </div>
-    </div>
+    </main>
   )
 }
