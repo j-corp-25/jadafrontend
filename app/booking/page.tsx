@@ -41,7 +41,7 @@ export default function Booking() {
           <button
             className='bg-jada-pink-base text-jada-text-base py-2 px-4 font-regular rounded-md hover:text-jada-accent-base focus:outline-none focus:ring-2 focus:ring-opacity-50'
             data-cal-namespace=''
-            data-cal-link='jordycor/15min'
+            data-cal-link='miss-jada/15min'
             data-cal-config='{"layout":"month_view"}'
           >
             Book Jada
