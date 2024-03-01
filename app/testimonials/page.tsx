@@ -1,4 +1,13 @@
 import { API_URL } from '@/config'
+import { Metadata } from "next";
+
+
+
+export const metadata: Metadata = {
+    title: 'Jada | Testimonials',
+    description: 'Your best Nanny is here',
+  }
+
 
 interface Testimonial {
   id: number

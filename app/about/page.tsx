@@ -2,6 +2,7 @@
 
 import { API_URL } from '@/config'
 import Image from 'next/image'
+import { Metadata } from "next";
 // import AboutImage from '../dashboard/components/AboutImage'
 interface AboutInfo {
   info: string
@@ -30,6 +31,10 @@ interface ImageAttribute {
       url: string
     }
   }
+}
+export const metadata: Metadata = {
+  title: 'Jada | About Me',
+  description: 'Your best Nanny is here',
 }
 
 interface AboutPageAttributes {
