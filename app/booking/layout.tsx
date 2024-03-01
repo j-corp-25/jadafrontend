@@ -1,5 +1,4 @@
 import { Metadata } from "next";
-import { Heroimage } from "../components/HeroImage";
 
 
 
@@ -16,12 +15,7 @@ export default function BookingLayout({
   }) {
     return (
       <main className='flex flex-col items-center justify-between min-h-screen'>
-
-        <div className='flex flex-col md:flex-row items-center justify-center md:space-x-8'>
-
-        <Heroimage />
         {children}
-        </div>
       </main>
     )
   }

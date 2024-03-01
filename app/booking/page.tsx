@@ -1,4 +1,3 @@
-'use client'
 /* First make sure that you have installed the package */
 
 /* If you are using yarn */
@@ -7,21 +6,10 @@
 /* If you are using npm */
 // npm install @calcom/embed-react
 
-import { getCalApi } from '@calcom/embed-react'
-import { useEffect } from 'react'
+import { BookingWidget } from '../components/BookingWidget'
+import { Heroimage } from '../components/HeroImage'
 
-export default function Booking({children}) {
-  useEffect(() => {
-    ;(async function () {
-      const cal = await getCalApi()
-      cal('ui', {
-        // this will use a blue color
-        styles: { branding: { brandColor: '#000099' } },
-        hideEventTypeDetails: false,
-        layout: 'month_view',
-      })
-    })()
-  }, [])
+export default function Booking() {
   return (
     <main className='flex flex-col items-center justify-between min-h-screen'>
       <div className='flex flex-col mb-10'>
@@ -38,16 +26,11 @@ export default function Booking({children}) {
             <h2 className='font-semibold mb-4'>
               Empowering Care for Special Children
             </h2>
-            <button
-              className='bg-jada-pink-base text-jada-text-base py-2 px-4 font-regular rounded-md hover:text-jada-accent-base focus:outline-none focus:ring-2 focus:ring-opacity-50'
-              data-cal-namespace=''
-              data-cal-link='miss-jada/15min'
-              data-cal-config='{"layout":"month_view"}'
-            >
-              Book Jada
-            </button>
+            <BookingWidget />
           </div>
-          {children}
+          <div className='mt-10 max-w-md '>
+            <Heroimage />
+          </div>
         </div>
       </div>
     </main>
