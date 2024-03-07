@@ -7,6 +7,7 @@ import CredentialsProvider from 'next-auth/providers/credentials'
 const handler = NextAuth({
   providers: [
     CredentialsProvider({
+      // using credentials, one of the options to setup nextauth
       name: 'Credentials',
       credentials: {
         username: { label: 'Username', type: 'text', placeholder: 'jsmith' },
@@ -28,9 +29,8 @@ const handler = NextAuth({
             }
           )
 
-          const data = await response.json() // Parse the JSON response
+          const data = await response.json()
           if (response.ok && data) {
-            // Return the entire data object to include both user and jwt in the token
             return data
           } else {
             return null
@@ -44,12 +44,12 @@ const handler = NextAuth({
   secret: process.env.NEXTAUTH_SECRET,
   callbacks: {
     async jwt({ token, user }) {
-      // Assuming you want to store user details in the token
+     // this will spread the user and token
 
       return { ...token, ...user }
     },
     async session({ session, token }) {
-      // Assuming you want to store user details from the token in the session
+      //sets up the session with token and user for easy access on the frontend
       session.jwt = token.jwt as string
       session.user = token.user as any
 
