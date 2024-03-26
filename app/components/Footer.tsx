@@ -20,7 +20,7 @@ const Footer = ({ children }) => {
       <div className='flex flex-col  md:flex-row items-center space-y-5 md:space-x-5 md:justify-center mx-5'>
         <div className='mt-5'>{children}</div>
 
-        <span className='self-center  text-jada-text-base text-2xl font-semibold whitespace-nowrap p-1 mt-5'>
+        <span className='self-center  text-jada-text-base text-2xl font-semibold text-center p-1 mt-5'>
           Caterpillar to Chrysalis Childcare
         </span>
 
