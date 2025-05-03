@@ -33,7 +33,7 @@ const AdminLogin = () => {
       <Link href="/">
       Home
       </Link>
-      {/* <form className='flex flex-col items-center'>
+      <form className='flex flex-col items-center'>
         <label htmlFor='username' className='cursor-pointer'>
           {' '}
           username
@@ -56,7 +56,7 @@ const AdminLogin = () => {
           type='password'
         />
         <button type="submit" className="bg-blue-100 ">Submit</button>
-      </form> */}
+      </form>
     </div>
   )
 }

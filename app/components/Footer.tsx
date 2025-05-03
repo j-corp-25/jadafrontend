@@ -68,7 +68,7 @@ const Footer = ({ children }) => {
             </a>
           </li>
           <li>
-            {user ? (
+            {/* {user ? (
               <>
                 <div>Logged in as: {user.username}</div>
                 <button className='text-red-500' onClick={() => signOut()}>
@@ -79,7 +79,7 @@ const Footer = ({ children }) => {
               <button className='text-green-600' onClick={() => signIn()}>
                 Admin Log In
               </button>
-            )}
+            )} */}
           </li>
         </ul>
       </div>
