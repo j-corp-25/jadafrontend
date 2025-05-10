@@ -14,7 +14,7 @@ import { usePathname } from 'next/navigation'
 const menuItems = [
   { href: '/about', label: 'About Jada' },
   // { href: '/services', label: 'Services' },
-  {href:'/testimonials', label: 'Testimonials'},
+  { href: '/testimonials', label: 'Testimonials' },
   { href: '/booking', label: 'Book Jada' },
   { href: '/resources', label: 'Resources' },
   { href: '/contact', label: 'Contact' },
@@ -22,7 +22,7 @@ const menuItems = [
   { href: '/dashboard', label: 'Dashboard' },
 ]
 
-const MobileNavbar = ({children}) => {
+const MobileNavbar = ({ children }) => {
   // const {Logo } = useLogos();
   const pathname = usePathname()
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -61,9 +61,11 @@ const MobileNavbar = ({children}) => {
               />
             </div>
           ))}
-          <Link href='/booking'>
-            <Button text='Book Jada' />
-          </Link>
+          <div onClick={closeMenu}>
+            <Link href='/booking'>
+              <Button text='Book Jada' />
+            </Link>
+          </div>
         </ul>
       </div>
 
