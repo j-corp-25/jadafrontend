@@ -19,7 +19,7 @@ const FaqItem = ({ question, answer }) => {
           Q:{question}
         </button>
         <div style={collapsibleStyle} className="overflow-hidden text-jada-text-base font-bold  bg-jada-tertiary-base rounded-xl ">
-          <div className='py-2 px-2 h-16'>
+          <div className='py-2 px-2 whitespace-pre-wrap break-words'>
             A:{answer}
           </div>
       </div>
