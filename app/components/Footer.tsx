@@ -32,8 +32,6 @@ const Footer = ({ children }) => {
           >
             <FaInstagram />
           </a>
-        </div>
-        <div className='flex flex-row space-x-3 '>
           <a
             href='https://www.linkedin.com/in/jade-sampson-3122b92a0'
             className='text-3xl text-jada-text-base hover:text-jada-pink-700'
