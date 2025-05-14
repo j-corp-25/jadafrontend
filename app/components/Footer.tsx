@@ -1,7 +1,7 @@
 'use client'
 import Link from 'next/link'
 import { signIn, signOut, useSession } from 'next-auth/react'
-import { FaInstagram, FaFacebook, FaTwitter } from 'react-icons/fa'
+import { FaInstagram, FaFacebook, FaTwitter, FaLinkedin } from 'react-icons/fa'
 // import Image from 'next/image'
 // import Logo from './Logo'
 import LogoImage from '../dashboard/components/LogoImage'
@@ -26,22 +26,20 @@ const Footer = ({ children }) => {
 
         <div className='flex flex-row space-x-3 '>
           <a
-            href='https://www.instagram.com/'
+            href='https://www.instagram.com/_jadasimone_'
             className='text-3xl text-jada-text-base hover:text-jada-pink-700'
+            target='_blank'
           >
             <FaInstagram />
           </a>
+        </div>
+        <div className='flex flex-row space-x-3 '>
           <a
-            href='https://www.facebook.com/'
+            href='https://www.linkedin.com/in/jade-sampson-3122b92a0'
             className='text-3xl text-jada-text-base hover:text-jada-pink-700'
+            target='_blank'
           >
-            <FaFacebook />
-          </a>
-          <a
-            href='https://www.twitter.com/'
-            className='text-3xl text-jada-text-base hover:text-jada-pink-700'
-          >
-            <FaTwitter />
+            <FaLinkedin />
           </a>
         </div>
 
@@ -60,6 +58,16 @@ const Footer = ({ children }) => {
               target='_blank'
             >
               Need Counseling?
+            </a>
+          </li>
+          <li>
+            <a
+              href='/Jada_Resume.pdf'
+              rel='noopener noreferrer'
+              className='hover:underline me-4 md:me-6'
+              target='_blank'
+            >
+              Check out my Resume!
             </a>
           </li>
           <li>
