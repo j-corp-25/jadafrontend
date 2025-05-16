@@ -25,7 +25,7 @@ const Footer = ({ children }) => {
         </span>
 
         <div className='flex flex-row space-x-3 '>
-          <a
+          {/* <a
             href='https://www.instagram.com/_jadasimone_'
             className='text-3xl text-jada-text-base hover:text-jada-pink-700'
             target='_blank'
@@ -38,7 +38,7 @@ const Footer = ({ children }) => {
             target='_blank'
           >
             <FaLinkedin />
-          </a>
+          </a> */}
         </div>
 
         <ul className='mx-5 flex  sm:w-auto flex-col md:flex-row items-center mb-6 text-sm font-medium text-gray-500 sm:mb-0 dark:text-gray-400 gap-3'>
