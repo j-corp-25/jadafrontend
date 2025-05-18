@@ -77,7 +77,7 @@ const HeroCard = async () => {
 
         <div className='flex flex-col space-y-5'>
           <span className='inline-block mt-1  text-gray-600 self-center text-xl font-semibold'>
-            Your child will be well taken care off
+            Your child will be well taken care of
           </span>
 
           <Link href='/booking'>
