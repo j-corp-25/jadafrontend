@@ -17,6 +17,14 @@ export default function Booking() {
           Book a quick Call
         </h1>
         <div className='flex flex-col md:flex-row items-center justify-center md:space-x-8'>
+          <div className='bg-transparent max-w-md mb-4 p-6 mt-10  '>
+            <img
+              src='/pricingJada1.png'
+              alt=''
+              className='rounded-lg  w-full'
+            />
+          </div>
+
           <div className='bg-yellow-300 p-6 rounded-lg mx-4 max-w-md mt-10'>
             <p className='mb-4 leading-10 text-xl'>
               Discover personalized nanny services by me, tailored for children
