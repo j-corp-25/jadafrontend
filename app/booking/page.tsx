@@ -19,7 +19,7 @@ export default function Booking() {
         <div className='flex flex-col md:flex-row items-center justify-center md:space-x-8'>
           <div className='bg-transparent max-w-md mb-4 p-6 mt-10  '>
             <img
-              src='/pricingJada1.png'
+              src='/pricingJada2.png'
               alt=''
               className='rounded-lg  w-full'
             />
